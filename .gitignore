@@ -3,3 +3,4 @@ views/.DS_Store
 npm-debug.log
 .idea/
 public/.DS_Store
+public/images/.DS_Store
