@@ -2,3 +2,4 @@ node_modules/
 views/.DS_Store
 npm-debug.log
 .idea/
+public/.DS_Store

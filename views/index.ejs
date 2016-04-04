@@ -17,12 +17,15 @@
 			<li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
 		</ul>
   	</nav>
-	
+
+  <ui-view></ui-view>
+  <!--
 	<div class="row">
 	    <div class="col-md-6 col-md-offset-3">
 	        <ui-view></ui-view>
 	    </div>
 	</div>
+	-->
 	<script type="text/ng-template" id="/home.html">
     	<div class="page-header">
         	<h1>Quize App</h1>
@@ -102,6 +105,7 @@
 	</script>
 	
 	<script type="text/ng-template" id="/register.html">
+    <!--
 		<div class="page-header">
     		<h1>Flapper News</h1>
   		</div>
@@ -122,6 +126,46 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Register</button>
   		</form>
+    -->
+    <link rel="stylesheet" href="/stylesheets/register/style.css">
+
+    <div class="container">
+      <section class="register">
+        <h1>عضویت در QuizUp</h1>
+        <form method="post" action="index.html">
+          <div class="reg_section personal_info">
+            <h3>اطلاعات فردی</h3>
+            <input type="text" name="username" value="" placeholder="نام کاربری">
+            <input type="text" name="email" value="" placeholder="آدرس ایمیل">
+          </div>
+          <div class="reg_section password">
+            <h3>رمز</h3>
+            <input type="password" name="password" value="" placeholder="رمز">
+            <input type="password" name="confirm" value="" placeholder="تکرار رمز">
+          </div>
+          <div class="reg_section password">
+            <h3>کشور</h3>
+            <select>
+              <option value="">ایران</option>
+              <option value="">Egypt</option>
+              <option value="">Palastine</option>
+              <option value="">Syria</option>
+              <option value="">Italy</option>
+            </select>
+            <textarea name="textarea" id="">آدرس کامل</textarea>
+          </div>
+          <p class="terms">
+            <label>
+              <input type="checkbox" name="remember_me" id="remember_me">
+              با تمامی شرایط عضویت در سایت QuizUp موافقم
+            </label>
+          </p>
+          <p class="submit"><input type="submit" name="commit" value=" عضویت "></p>
+        </form>
+
+      </section>
+
+    </div>
 		
 	</script>
 	
