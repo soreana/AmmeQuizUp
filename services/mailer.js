@@ -7,7 +7,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport('smtps://niceguyofsotflab%40gmail.com:ju7654321qa@smtp.gmail.com');
 
 var mailOptions = {
-    from: '"Fred Foo " <niceguyofsotflab@gmail.com>', // sender address
+    from: '"Parkoosh Team " <niceguyofsotflab@gmail.com>', // sender address
     subject: 'Hello ✔', // Subject line 
     text: 'Hello world 🐴', // plaintext body 
     html: '<b>Hello world 🐴</b>' // html body 
@@ -15,10 +15,10 @@ var mailOptions = {
 
 var helper = {
     getActivationLink: function (key) {
-        return 'http://sinsing.org/emailAddress/' + key;
+        return 'http://parkoosh.ir/emailAddress/' + key;
     },
     getChallengeRout: function (route) {
-        return 'http://sinsing.org' + route; 
+        return 'http://parkoosh.ir' + route; 
     },
     sendMail : function (options) {
         //noinspection JSUnresolvedFunction
