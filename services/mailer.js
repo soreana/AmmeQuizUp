@@ -17,7 +17,7 @@ var helper = {
     getActivationLink: function (key) {
         return 'http://sinsing.org/emailAddress/' + key;
     },
-    getChallengeRout: function (rout) {
+    getChallengeRout: function (route) {
         return 'http://sinsing.org' + route; 
     },
     sendMail : function (options) {
