@@ -1,9 +1,11 @@
+//noinspection SpellCheckingInspection
 /**
  * Created by sinaikashipazha on 4/11/16.
  */
 
 var nodemailer = require('nodemailer');
 
+//noinspection SpellCheckingInspection
 var transporter = nodemailer.createTransport('smtps://niceguyofsotflab%40gmail.com:ju7654321qa@smtp.gmail.com');
 
 var mailOptions = {
