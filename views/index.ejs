@@ -210,62 +210,43 @@
 </script>
 
 <script type="text/ng-template" id="/register.html">
-  <!--
-  <div class="page-header">
-      <h1>Flapper News</h1>
-    </div>
 
-  <div ng-show="error" class="alert alert-danger row">
-      <span>{{ error.message }}</span>
-    </div>
-
-  <form ng-submit="register()" style="margin-top:30px;">
-    <h3>Register</h3>
-
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Username" ng-model="user.username"></input>
-    </div>
-
-    <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" ng-model="user.password"></input>
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-  -->
   <link rel="stylesheet" href="/stylesheets/register/style.css">
 
   <div class="container">
     <section class="register">
       <h1>عضویت در QuizUp</h1>
-      <form method="post" action="index.html">
+      <div ng-show="error" class="alert alert-danger row">
+        <span>{{ error.message }}</span>
+      </div>
+      <form method="post" ng-submit="register()">
         <div class="reg_section personal_info">
           <h3>اطلاعات فردی</h3>
-          <input type="text" name="username" value="" placeholder="نام کاربری">
-          <input type="text" name="email" value="" placeholder="آدرس ایمیل">
+          <input type="text" name="username" value="" placeholder="نام کاربری" ng-model="user.name">
+          <input type="text" name="email" value="" placeholder="آدرس ایمیل" ng-model="user.email">
         </div>
         <div class="reg_section password">
           <h3>رمز</h3>
-          <input type="password" name="password" value="" placeholder="رمز">
-          <input type="password" name="confirm" value="" placeholder="تکرار رمز">
+          <input type="password" name="password" value="" placeholder="رمز" ng-model="user.password">
+          <input type="password" name="confirm" value="" placeholder="تکرار رمز" ng-model="passwordRepeat">
         </div>
         <div class="reg_section password">
           <h3>کشور</h3>
           <select>
             <option value="">ایران</option>
-            <option value="">Egypt</option>
-            <option value="">Palastine</option>
-            <option value="">Syria</option>
-            <option value="">Italy</option>
+            <option value="">مصر</option>
+            <option value="">فلسطین</option>
+            <option value="">سوریه</option>
+            <option value="">ایتالیا</option>
           </select>
           <textarea name="textarea" id="">آدرس کامل</textarea>
         </div>
         <p class="terms">
           <label>
-            <input type="checkbox" name="remember_me" id="remember_me">
-            با تمامی شرایط عضویت در سایت QuizUp موافقم
+            <input type="checkbox" name="remember_me" id="remember_me" ng-model="agreement"> با تمام شرایط سایت Quize Up موافقم
           </label>
         </p>
-        <p class="submit"><input type="submit" name="commit" value=" عضویت "></p>
+        <p class="submit"><input type="submit" name="commit" value="عضویت"></p>
       </form>
 
     </section>
