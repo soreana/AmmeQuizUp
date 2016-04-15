@@ -112,6 +112,17 @@ app.config([
     function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
+            .state( 'dashboard',{
+                url:'/dashboard',
+                templateUrl: 'dashboard.html',
+                controller: 'DashboardCtrl',
+                resolve: {
+                    postPromise: ['posts', function (posts) {
+                        return posts.getAll();
+                    }]
+                }
+            });
+        $stateProvider
             .state('home', {
                 url: '/home',
                 templateUrl: '/home.html',
@@ -188,6 +199,7 @@ app.controller('PostsCtrl',
             $scope.isLoggedIn = auth.isLoggedIn;
         }]);
 
+
 app.controller('AuthCtrl',
     ['$scope', '$state', 'auth',
         function ($scope, $state, auth) {
@@ -199,10 +211,12 @@ app.controller('AuthCtrl',
             $scope.passwordRepeat = '';
 
             $scope.register = function () {
+                /*
                 if(!$scope.user.agreement){
                     $scope.error.message = 'شما شرایط عضویت را نپذیرفته‌اید.';
                     return;
                 }
+                */
                 
                 if($scope.user.password !== $scope.passwordRepeat){
                     $scope.error.message = 'رمز‌ها یکسان نیستند.';
@@ -212,7 +226,7 @@ app.controller('AuthCtrl',
                 auth.register($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('home');
+                    $state.go('dashboard');
                 });
             };
 
@@ -220,7 +234,7 @@ app.controller('AuthCtrl',
                 auth.login($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('home');
+                    $state.go('dashboard');
                 });
             };
 
@@ -255,4 +269,11 @@ app.controller('MainCtrl',
                 posts.upvote(post);
             };
             $scope.isLoggedIn = auth.isLoggedIn;
+        }]);
+
+
+app.controller('DashboardCtrl',
+    ['$scope','posts','auth',
+        function ($scope,posts,auth) {
+            
         }]);

@@ -76,6 +76,10 @@
     </div>
 </div>
 -->
+<script type="text/ng-template" id="/dashboard.html">
+  <p> hello world!</p>
+</script>
+
 <script type="text/ng-template" id="/home.html">
 
   <!-- Navigation -->
@@ -274,7 +278,7 @@
     <div class="container">
       <h1>خوش آمدید</h1>
 
-      <div dir="rtl" ng-show="error" class="alert alert-danger row">
+      <div dir="rtl" ng-show="error.message" class="alert alert-danger row">
         <span>{{ error.message }}</span>
       </div>
 
