@@ -220,14 +220,15 @@
   <div class="container">
     <section class="register">
       <h1>عضویت در QuizUp</h1>
-      <div ng-show="error" class="alert alert-danger row">
+      <div ng-show="error.message" class="alert alert-danger row">
         <span>{{ error.message }}</span>
       </div>
       <form method="post" ng-submit="register()">
         <div class="reg_section personal_info">
           <h3>اطلاعات فردی</h3>
           <input type="text" name="username" value="" placeholder="نام کاربری" ng-model="user.name">
-          <input type="text" name="email" value="" placeholder="آدرس ایمیل" ng-model="user.email">
+          <input type="email" name='email' value="" validate-email  id='email' ng-model='user.email' required
+                 placeholder="آدرس ایمیل">
         </div>
         <div class="reg_section password">
           <h3>رمز</h3>
@@ -247,7 +248,7 @@
         </div>
         <p class="terms">
           <label>
-            <input type="checkbox" name="remember_me" id="remember_me" ng-model="agreement"> با تمام شرایط سایت Quize Up موافقم
+            <input type="checkbox" name="remember_me" id="remember_me" ng-model="user.agreement"> با تمام شرایط سایت Quiz Up موافقم
           </label>
         </p>
         <p class="submit"><input type="submit" name="commit" value="عضویت"></p>

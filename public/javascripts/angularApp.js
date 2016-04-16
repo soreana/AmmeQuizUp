@@ -85,12 +85,9 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
     };
 
     auth.register = function (user) {
-        if ($scope.agreement)
-            return $http.post('/register', user).success(function (data) {
-                auth.saveToken(data.token);
-            });
-        else
-            $scope.error = 'لطفا با شرایط سایت موافقت کنید.'
+        return $http.post('/register', user).success(function (data) {
+            auth.saveToken(data.token);
+        });
     };
 
     auth.login = function (user) {
@@ -112,8 +109,8 @@ app.config([
     function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
-            .state( 'dashboard',{
-                url:'/dashboard',
+            .state('dashboard', {
+                url: '/dashboard',
                 templateUrl: 'dashboard.html',
                 controller: 'DashboardCtrl',
                 resolve: {
@@ -204,25 +201,24 @@ app.controller('AuthCtrl',
     ['$scope', '$state', 'auth',
         function ($scope, $state, auth) {
             $scope.user = {
-                agreement:false,
-                password :''
+                agreement: false,
+                password: ''
             };
             $scope.error = {};
             $scope.passwordRepeat = '';
 
             $scope.register = function () {
-                /*
-                if(!$scope.user.agreement){
+
+                if (!$scope.user.agreement) {
                     $scope.error.message = 'شما شرایط عضویت را نپذیرفته‌اید.';
                     return;
                 }
-                */
-                
-                if($scope.user.password !== $scope.passwordRepeat){
+
+                if ($scope.user.password !== $scope.passwordRepeat) {
                     $scope.error.message = 'رمز‌ها یکسان نیستند.';
                     return;
                 }
-                
+
                 auth.register($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
@@ -259,7 +255,7 @@ app.controller('MainCtrl',
 
                 posts.creat({
                     title: $scope.title,
-                    link: $scope.link,
+                    link: $scope.link
                 });
 
                 $scope.title = '';
@@ -273,7 +269,26 @@ app.controller('MainCtrl',
 
 
 app.controller('DashboardCtrl',
-    ['$scope','posts','auth',
-        function ($scope,posts,auth) {
-            
+    ['$scope', 'posts', 'auth',
+        function ($scope, posts, auth) {
+
         }]);
+
+app.directive('validateEmail', function () {
+    var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/;
+
+    return {
+        require: 'ngModel',
+        restrict: '',
+        link: function (scope, elm, attrs, ctrl) {
+            // only apply the validator if ngModel is present and Angular has added the email validator
+            if (ctrl && ctrl.$validators.email) {
+
+                // this will overwrite the default Angular email validator
+                ctrl.$validators.email = function (modelValue) {
+                    return ctrl.$isEmpty(modelValue) || EMAIL_REGEXP.test(modelValue);
+                };
+            }
+        }
+    };
+});
