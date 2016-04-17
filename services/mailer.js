@@ -14,7 +14,7 @@ var mailOptions = {
 
 var helper = {
     getActivationLink: function (key) {
-        return 'http://parkoosh.ir/emailAddress/' + key;
+        return 'http://parkoosh.ir/' + key;
     },
     getChallengeRout: function (route) {
         return 'http://parkoosh.ir' + route; 
