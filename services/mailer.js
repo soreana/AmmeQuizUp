@@ -14,10 +14,10 @@ var mailOptions = {
 
 var helper = {
     getActivationLink: function (key) {
-        return 'http://parkoosh.ir/' + key;
+        return 'http://parkoosh.ir/activation/' + key;
     },
     getChallengeRout: function (route) {
-        return 'http://parkoosh.ir' + route; 
+        return 'http://parkoosh.ir/' + route; 
     },
     sendMail : function (options) {
         //noinspection JSUnresolvedFunction
