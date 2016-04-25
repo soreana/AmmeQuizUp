@@ -63,6 +63,8 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
         rel='stylesheet' type='text/css'>
 
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 
 <body ng-app="flapperNews">
@@ -274,6 +276,7 @@
       <form class="form" ng-submit="logIn()">
         <input type="text" placeholder="نام کاربری" ng-model="user.username">
         <input type="password" placeholder="رمز عبور" ng-model="user.password">
+        <div class="g-recaptcha" data-sitekey="6LcdSh4TAAAAAMf-L1wgIxOctsk99XN_Sk4mn7kb"></div>
         <button type="submit" id="login-button"> ورود</button>
       </form>
     </div>
