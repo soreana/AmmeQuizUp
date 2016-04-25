@@ -111,7 +111,7 @@ app.config([
         $stateProvider
             .state('dashboard', {
                 url: '/dashboard',
-                templateUrl: 'dashboard.html',
+                templateUrl: '/dashboard.html',
                 controller: 'DashboardCtrl',
                 resolve: {
                     postPromise: ['posts', function (posts) {
