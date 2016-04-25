@@ -17,6 +17,7 @@
     "mongoose": "latest",
     "jsonwebtoken": "latest",
     "express-jwt": "latest",
-    "passport": "latest"
+    "passport": "latest",
+    "passport-local": "latest"
   }
 }
