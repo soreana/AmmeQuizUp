@@ -4,8 +4,11 @@ var jwt = require('jsonwebtoken');
 
 var UserSchema = new mongoose.Schema({
 	username: { type: String ,lowercase: true , unique: true},
+    email: {type:String, lowercase:true, unique:true},
+    country: String,
 	hash: String,
-	salt: String
+	salt: String,
+    isActivated:Boolean
 });
 
 UserSchema.methods.setPassword = function(password){
