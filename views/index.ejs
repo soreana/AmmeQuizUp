@@ -103,42 +103,46 @@
 
   <div id="body">
 
-    <!-- START X-NAVIGATION VERTICAL -->
-    <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-      <!-- TOGGLE NAVIGATION -->
-      <li class="xn-icon-button">
-        <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
-      </li>
-      <!-- END TOGGLE NAVIGATION -->
-      <!-- SEARCH -->
-      <li class="xn-search">
-        <form role="form">
-          <input type="text" name="search" placeholder="Search..."/>
-        </form>
-      </li>
-      <!-- END SEARCH -->
+    <nav ng-controller="NavCtrl">
+      <!-- START X-NAVIGATION VERTICAL -->
+      <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+        <!-- TOGGLE NAVIGATION -->
+        <li class="xn-icon-button">
+          <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+        </li>
+        <!-- END TOGGLE NAVIGATION -->
+        <!-- SEARCH -->
+        <li class="xn-search">
+          <form role="form">
+            <input type="text" name="search" placeholder="Search..."/>
+          </form>
+        </li>
+        <!-- END SEARCH -->
 
-      <!-- SIGN OUT -->
-      <li class="xn-icon-button pull-right">
-        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
-      </li>
-      <!-- END SIGN OUT -->
+        <!-- SIGN OUT -->
+        <li class="xn-icon-button pull-right" ng-click="logOut()">
+          <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+        </li>
+        <!-- END SIGN OUT -->
 
-      <!-- MESSAGES -->
-      <li class="xn-icon-button pull-right">
-        <a href="#"><span class="fa fa-comments"></span></a>
-        <div class="informer informer-danger">4</div>
-      </li>
-      <!-- END MESSAGES -->
+        <!-- MESSAGES -->
+        <li class="xn-icon-button pull-right">
+          <a href="#"><span class="fa fa-comments"></span></a>
+          <div class="informer informer-danger">4</div>
+        </li>
+        <!-- END MESSAGES -->
 
-      <!-- TASKS -->
-      <li class="xn-icon-button pull-right">
-        <a href="#"><span class="fa fa-tasks"></span></a>
-        <div class="informer informer-warning">3</div>
-      </li>
-      <!-- END TASKS -->
-    </ul>
-    <!-- END X-NAVIGATION VERTICAL -->
+        <!-- TASKS -->
+        <li class="xn-icon-button pull-right">
+          <a href="#"><span class="fa fa-tasks"></span></a>
+          <div class="informer informer-warning">3</div>
+        </li>
+        <!-- END TASKS -->
+      </ul>
+      <!-- END X-NAVIGATION VERTICAL -->
+
+    </nav>
+
     <div class="container" id="background">
 
       <div class="row content-frame-body content-frame-body-left">

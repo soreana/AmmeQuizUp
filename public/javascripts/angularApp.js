@@ -52,7 +52,7 @@ app.factory('posts', ['$http', 'auth', function ($http, auth) {
     return o;
 }]);
 
-app.factory('auth', ['$http', '$window', function ($http, $window) {
+app.factory('auth', ['$http', '$window', '$state', function ($http, $window ,$state) {
     var auth = {};
 
     auth.saveToken = function (token) {
@@ -97,6 +97,7 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
     };
 
     auth.logout = function () {
+        $state.go('login');
         $window.localStorage.removeItem('flapper-news-token');
     };
 
