@@ -118,7 +118,12 @@ app.config([
                     postPromise: ['posts', function (posts) {
                         return posts.getAll();
                     }]
-                }
+                },
+                onEnter: ['$state','auth',function ($state,auth) {
+                    if(!auth.isLoggedIn()){
+                        $state.go('login');
+                    }
+                }]
             });
         $stateProvider
             .state('home', {
@@ -277,7 +282,25 @@ app.controller('MainCtrl',
 app.controller('DashboardCtrl',
     ['$scope', 'posts', 'auth',
         function ($scope, posts, auth) {
+            $scope.test = 'Hello world!';
+            $scope.posts = posts.posts;
+            $scope.addPost = function () {
+                if (!$scope.title || $scope.title === '')
+                    return;
 
+                posts.creat({
+                    title: $scope.title,
+                    link: $scope.link
+                });
+
+                $scope.title = '';
+                $scope.link = '';
+            };
+            $scope.incrementUpvotes = function (post) {
+                posts.upvote(post);
+            };
+            
+            $scope.logOut = auth.logout;
         }]);
 
 app.directive('validateEmail', function () {

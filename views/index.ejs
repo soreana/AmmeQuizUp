@@ -55,10 +55,6 @@
       width: 100%;
       height: 100%;
     }
-
-    .img-circle {
-      border-radius: 50%;
-    }
   </style>
 
   <meta charset="utf-8">
@@ -103,85 +99,59 @@
 
   <div id="body">
 
-    <nav ng-controller="NavCtrl">
-      <!-- START X-NAVIGATION VERTICAL -->
-      <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-        <!-- TOGGLE NAVIGATION -->
-        <li class="xn-icon-button">
-          <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
-        </li>
-        <!-- END TOGGLE NAVIGATION -->
-        <!-- SEARCH -->
-        <li class="xn-search">
-          <form role="form">
-            <input type="text" name="search" placeholder="Search..."/>
-          </form>
-        </li>
-        <!-- END SEARCH -->
+    <!-- START X-NAVIGATION VERTICAL -->
+    <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+      <!-- TOGGLE NAVIGATION -->
+      <li class="xn-icon-button">
+        <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+      </li>
+      <!-- END TOGGLE NAVIGATION -->
+      <!-- SEARCH -->
+      <li class="xn-search">
+        <form role="form">
+          <input type="text" name="search" placeholder="Search..."/>
+        </form>
+      </li>
+      <!-- END SEARCH -->
 
-        <!-- SIGN OUT -->
-        <li class="xn-icon-button pull-right" ng-click="logOut()">
-          <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
-        </li>
-        <!-- END SIGN OUT -->
+      <!-- SIGN OUT -->
+      <li class="xn-icon-button pull-right" ng-click="logOut()">
+        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+      </li>
+      <!-- END SIGN OUT -->
 
-        <!-- MESSAGES -->
-        <li class="xn-icon-button pull-right">
-          <a href="#"><span class="fa fa-comments"></span></a>
-          <div class="informer informer-danger">4</div>
-        </li>
-        <!-- END MESSAGES -->
+      <!-- MESSAGES -->
+      <li class="xn-icon-button pull-right">
+        <a href="#"><span class="fa fa-comments"></span></a>
+        <div class="informer informer-danger">4</div>
+      </li>
+      <!-- END MESSAGES -->
 
-        <!-- TASKS -->
-        <li class="xn-icon-button pull-right">
-          <a href="#"><span class="fa fa-tasks"></span></a>
-          <div class="informer informer-warning">3</div>
-        </li>
-        <!-- END TASKS -->
-      </ul>
-      <!-- END X-NAVIGATION VERTICAL -->
-
-    </nav>
+      <!-- TASKS -->
+      <li class="xn-icon-button pull-right">
+        <a href="#"><span class="fa fa-tasks"></span></a>
+        <div class="informer informer-warning">3</div>
+      </li>
+      <!-- END TASKS -->
+    </ul>
+    <!-- END X-NAVIGATION VERTICAL -->
 
     <div class="container" id="background">
 
       <div class="row content-frame-body content-frame-body-left">
 
+        <div ng-repeat="post in posts" class="col-sm-1 gallery" id="links">
 
-        <div class="col-sm-1 gallery" id="links">
+          <a class="gallery-item" title="Nature Image 1" data-gallery>
 
-          <a class="gallery-item" href="assets/images/gallery/nature-1.jpg" title="Nature Image 1" data-gallery>
             <div class="image img-circle">
-              <img src="assets/images/gallery/nature-1.jpg" alt="Nature Image 1"/>
-              <!--
-              <ul class="gallery-item-controls">
-                  <li><label class="check"><input type="checkbox" class="icheckbox"/></label></li>
-                  <li><span class="gallery-item-remove"><i class="fa fa-times"></i></span></li>
-              </ul>
-              -->
+              <img src="assets/images/gallery/lover.jpg" alt="Nature Image 1"/>
             </div>
             <div class="meta">
-              <strong>Nature image 1</strong>
-              <span>Description</span>
+              <strong>{{post.title}}</strong>
             </div>
           </a>
           <div class="col-sm-11"></div>
-
-          <a class="gallery-item" href="assets/images/gallery/nature-1.jpg" title="Nature Image 1" data-gallery>
-            <div class="image img-circle">
-              <img src="assets/images/gallery/nature-1.jpg" alt="Nature Image 1"/>
-              <!--
-              <ul class="gallery-item-controls">
-                  <li><label class="check"><input type="checkbox" class="icheckbox"/></label></li>
-                  <li><span class="gallery-item-remove"><i class="fa fa-times"></i></span></li>
-              </ul>
-              -->
-            </div>
-            <div class="meta">
-              <strong>Nature image 1</strong>
-              <span>Description</span>
-            </div>
-          </a>
 
         </div>
 
@@ -189,8 +159,15 @@
 
         <div class="bottom-left">
           <div class="btn-group">
-            <button class="btn btn-primary"><span class="fa fa-pencil"></span> Edit</button>
-            <button class="btn btn-primary"><span class="fa fa-trash-o"></span> Delete</button>
+
+
+            <form ng-submit="addPost()" style="margin-top:30px;">
+              <div class="form-group">
+                <input class="form-control" placeholder="category name" ng-model="title">
+              </div>
+              <button class="btn btn-primary"><span class="fa fa-plus"></span>جدید</button>
+              <button class="btn btn-primary"><span class="fa fa-trash-o"></span>حذف</button>
+            </form>
           </div>
         </div>
 
@@ -388,7 +365,7 @@
 
 <script type="text/ng-template" id="/login.html">
 
-  <link rel="stylesheet" href="/stylesheets/login/style.css">
+  <link rel="stylesheet" href="stylesheets/login/style.css">
   <div class="wrapper">
     <div class="container">
       <h1>خوش آمدید</h1>
