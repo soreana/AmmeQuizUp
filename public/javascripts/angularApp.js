@@ -128,7 +128,12 @@ app.config([
                     postPromise: ['posts', function (posts) {
                         return posts.getAll();
                     }]
-                }
+                },
+                onEnter: ['$state','auth',function ($state,auth) {
+                    if(auth.isLoggedIn()){
+                        $state.go('dashboard');
+                    }
+                }]
             });
         $stateProvider
             .state('posts', {
@@ -149,7 +154,7 @@ app.config([
                 controller: 'AuthCtrl',
                 onEnter: ['$state', 'auth', function ($state, auth) {
                     if (auth.isLoggedIn()) {
-                        $state.go('home');
+                        $state.go('dashboard');
                     }
                 }]
             });
@@ -161,13 +166,13 @@ app.config([
                 controller: 'AuthCtrl',
                 onEnter: ['$state', 'auth', function ($state, auth) {
                     if (auth.isLoggedIn()) {
-                        $state.go('home');
+                        $state.go('dashboard');
                     }
                 }]
             });
 
 
-        $urlRouterProvider.otherwise('home');
+        $urlRouterProvider.otherwise('dashboard');
     }]);
 
 app.controller('PostsCtrl',
