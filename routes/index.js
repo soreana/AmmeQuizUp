@@ -7,6 +7,10 @@ var mailer = require('../services/mailer');
 
 var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
+/* GET dashboard page */
+router.get('/dashboard', function (req, res, next) {
+    res.render('dashboard', {title: 'Express'});
+});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

@@ -1,4 +1,4 @@
-<script>
+
             $(document).ready(function() {
 
                 var id = '#dialog';
@@ -42,4 +42,3 @@
                 });
 
             });
-    </script>

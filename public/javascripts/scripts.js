@@ -510,11 +510,11 @@ $(document).ready(function(){
 		curr_page = curr_page.split("#");
 		curr_page = curr_page[1];
 
-		
+
 		var next_page = $(".main_menu ul li a[href='#"+page+"']").attr("href");
 		next_page = next_page.split("#");
 		next_page = next_page[1];
-		
+
 
 		if (curr_page == next_page)
 			return false;
@@ -523,7 +523,7 @@ $(document).ready(function(){
 		var next_page_id;
 
 		next_page_id = $(this).attr("data-id");
-		
+
 
 		var animEndEventNames = {
 			'WebkitAnimation' : 'webkitAnimationEnd',
@@ -563,7 +563,7 @@ $(document).ready(function(){
 					$("#portfolio_grid").mixitup();
 
 					$(' #portfolio_grid > li ').each( function() { $(this).hoverdir(); } );
-					
+
 					$("#portfolio_grid").magnificPopup({
 				        delegate: 'a',
 				        type: 'inline',
@@ -581,7 +581,7 @@ $(document).ready(function(){
 							set_center: [-25.005973, 133.198242],
 							zoom: 4
 						}
-					}).Load(); 
+					}).Load();
 				}
 			}else if (next_page == "blog"){
 				if ($(".blog_tweets > .tweets").is(":empty")){
@@ -592,7 +592,7 @@ $(document).ready(function(){
 					});
 				}
 			}
-			
+
 			//animations
 			if (next_page == "about"){
 				if (!$(".content > div#about .left_side").hasClass("animated")){
