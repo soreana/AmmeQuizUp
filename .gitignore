@@ -4,3 +4,5 @@ npm-debug.log
 .idea/
 public/.DS_Store
 public/images/.DS_Store
+public/javascripts/.DS_Store
+public/stylesheets/.DS_Store
