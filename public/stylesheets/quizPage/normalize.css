@@ -23,6 +23,7 @@ summary {
     display: block;
 }
 
+*[dir="rtl"] { direction: rtl;}
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */

@@ -2,7 +2,6 @@
 <html dir="rtl">
 <head>
 
-
     <link href="/stylesheets/quizPage/style.css" type="text/css" rel="stylesheet">
     <link href="/stylesheets/quizPage/normalize.css" type="text/css" rel="stylesheet">
     <link href="/stylesheets/quizPage/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -31,6 +30,12 @@
 
 <body class="theme_1"
       style="background: url('images/quizPage/bg.jpg') center 0 no-repeat;background-size: cover;background-attachment: fixed;">
+
+<script>
+    function showQuestionPopUp() {
+        document.getElementById("QuestionPopUp").style.visibility = "visible";
+    }
+</script>
 
 
 <!-- Wrapper -->
@@ -121,16 +126,16 @@
 
             <!-- About Page -->
             <div id="about">
-                <h1 class="title color">About Me</h1>
+                <h1 class="title color">پروفایل من</h1>
 
                 <!-- Left Side -->
-                <div class="left_side">
+                <div class="right_side">
 
                     <!-- Who i am -->
                     <div class="box who_i_am">
                         <div class="title">
                             <div class="icon"><i class="fa fa-user"></i></div>
-                            <div class="text">WHO I AM</div>
+                            <div class="text">مشخصات فردی</div>
                             <div class="clear"></div>
                         </div>
 
@@ -145,27 +150,27 @@
                         <!-- Personal Details -->
                         <div class="personal_details">
                             <div class="item title">
-                                <div class="icon"><i class="fa fa-user"></i><span>Name</span></div>
+                                <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
                                 <div class="text">John Doe</div>
                                 <div class="clear"></div>
                             </div>
                             <div class="item title">
-                                <div class="icon"><i class="fa fa-calendar"></i><span>Birthday</span></div>
+                                <div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>
                                 <div class="text">January 17, 1992</div>
                                 <div class="clear"></div>
                             </div>
                             <div class="item title">
-                                <div class="icon"><i class="fa fa-map-marker"></i><span>Address</span></div>
+                                <div class="icon"><i class="fa fa-map-marker"></i><span>آدرس</span></div>
                                 <div class="text">New York City</div>
                                 <div class="clear"></div>
                             </div>
                             <div class="item title">
-                                <div class="icon"><i class="fa fa-mobile"></i><span>Phone</span></div>
+                                <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
                                 <div class="text">+ 123-456-7890</div>
                                 <div class="clear"></div>
                             </div>
                             <div class="item title">
-                                <div class="icon"><i class="fa fa-envelope"></i><span>Email</span></div>
+                                <div class="icon"><i class="fa fa-envelope"></i><span>پست الکترونیک</span></div>
                                 <div class="text">john@site.com</div>
                                 <div class="clear"></div>
                             </div>
@@ -181,6 +186,7 @@
                     <!-- /Who i am -->
 
                     <!-- What i do -->
+                    <!--
                     <div class="box what_i_do">
                         <div class="title">
                             <div class="icon"><i class="fa fa-certificate"></i></div>
@@ -197,9 +203,11 @@
                             amet velit auctor tempus. In ac lectus felis.
                         </div>
                     </div>
+                    -->
                     <!-- /What i do -->
 
                     <!-- Tools i use -->
+                    <!--
                     <div class="box tools_i_use">
                         <div class="title">
                             <div class="icon"><i class="fa fa-wrench"></i></div>
@@ -216,6 +224,7 @@
                             <a href="#" class="tool btn">Drupal</a>
                         </div>
                     </div>
+                    -->
                     <!-- /Tools i use -->
 
                 </div>
@@ -233,6 +242,7 @@
                     <!-- /About Pictures -->
 
                     <!-- My Services -->
+                    <!--
                     <div class="box my_services">
                         <div class="title">
                             <div class="icon"><i class="fa fa-wrench"></i></div>
@@ -289,9 +299,11 @@
                             </div>
                         </div>
                     </div>
+                    -->
                     <!-- /My Services -->
 
                     <!-- Testimonials -->
+                    <!--
                     <div class="box testimonials">
                         <div class="title">
                             <div class="icon"><i class="fa fa-users"></i></div>
@@ -330,6 +342,7 @@
                             </div>
                         </div>
                     </div>
+                    -->
                     <!-- /Testimonials -->
 
                 </div>
@@ -341,7 +354,7 @@
                 <div class="box awards">
                     <div class="title">
                         <div class="icon"><i class="fa fa-trophy"></i></div>
-                        <div class="text">MY AWARDS</div>
+                        <div class="text">کوییز های من</div>
                         <div class="clear"></div>
                     </div>
                     <div class="awards">
@@ -415,8 +428,7 @@
 
                     </div>
 
-                    <a href="#" class="btn"><i class="fa fa-download"></i><span> افزودن سوال </span>
-
+                    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()"><i class="fa fa-download"></i><span> افزودن سوال </span>
                         <div class="clear"></div>
                     </a>
                     <!-- /Employment -->
@@ -1146,7 +1158,7 @@
 <!-- /Loading Overlay -->
 
 <!--Question Pop Up Window -->
-<!--
+
 <div id="QuestionPopUp" class="container">
 
     <div id="dialog" class="window">
@@ -1161,7 +1173,7 @@
             <label class="filter-col"  for="pref-orderby">دسته بندی</label>
 
             <select id="pref-orderby" class="form-control">s
-                <option value"">اتنخاب کنید<option>
+                <option value""> انتخاب کنید... <option>
                 <option>کامپیوتر</option>
                 <option>برق</option>
                 <option>شیمی</option>
@@ -1176,7 +1188,7 @@
 
     </div>
 </div>
--->
+
 
 <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/mixitup.min.js"></script>

@@ -14,6 +14,7 @@
  *	11. Footer
  *	12. Themes
  *	13. Media Queries
+ *  14. QuestionPopUp
 */
 
 
@@ -22,6 +23,8 @@
 			1. CSS Reset
 ===============================================
 */
+
+*[dir="rtl"] { direction: rtl; float: right; }
 
 /* inits & resets */
 body{
@@ -4112,5 +4115,17 @@ img.mfp-img {
         	margin-top: 5%;
         	margin-bottom: 5%;
         }
+
+/*
+===============================================
+        14. QuestionPopUP
+===============================================
+*/
+
+	#QuestionPopUp{
+		direction: rtl;
+		visibility: hidden;
+	}
+
 
 }
