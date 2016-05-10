@@ -1,5 +1,5 @@
 /**
- * Created by sinaikashipazha on 5/10/16.
+ * Created by AmooQuizGroup
  */
 
 var app = angular.module('dashboardApp', ['ui.router']);
@@ -10,10 +10,10 @@ app.config([
     function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
-            .state ('category',{
-                url: '/category',
-                templateUrl: '/category.html',
-                controller: 'CategoryCtrl'
+            .state ('quizHome',{
+                url: '/quizHome',
+                templateUrl: '/quizHome.html',
+                controller: 'QuizHomeCtrl'
             });
         
         $stateProvider
@@ -31,6 +31,13 @@ app.config([
             });
 
         $stateProvider
+            .state ('category',{
+            url: '/category',
+            templateUrl: '/category.html',
+            controller: 'CategoryCtrl'
+        });
+
+        $stateProvider
             .state('quiz',{
                 url: '/quiz',
                 templateUrl: '/quiz.html',
@@ -43,10 +50,13 @@ app.config([
                 templateUrl: '/contact.html',
                 controller: 'ContactCtrl'
             });
+
+        $urlRouterProvider.otherwise('quizHome');
     }
+
 ]);
 
-app.controller('CategoryCtrl',
+app.controller('QuizHomeCtrl',
     ['$scope','auth',
         function ($scope,auth) {
             
@@ -64,6 +74,12 @@ app.controller('QuestionCtrl',
 
         }]);
 
+app.controller('CategoryCtrl',
+    ['$scope','auth',
+        function ($scope,auth) {
+
+        }]);
+
 app.controller('QuizCtrl',
     ['$scope','auth',
         function ($scope,auth) {
@@ -76,3 +92,10 @@ app.controller('ContactCtrl',
 
         }]);
 
+app.controller('NavCtrl',
+    ['$scope','$state',function($scope,$state){
+        $scope.gotoState = function( state ){
+            console.log(state);
+            $state.go(state);
+        }
+    }]);
