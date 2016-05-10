@@ -46,38 +46,33 @@ app.config([
     }
 ]);
 
-app.controller('',
+app.controller('CategoryCtrl',
     ['$scope','auth',
         function ($scope,auth) {
             
         }]);
 
-app.controller('',
+app.controller('ProfileCtrl',
     ['$scope','auth',
         function ($scope,auth) {
 
         }]);
 
-app.controller('',
+app.controller('QuestionCtrl',
     ['$scope','auth',
         function ($scope,auth) {
 
         }]);
 
-app.controller('',
+app.controller('QuizCtrl',
     ['$scope','auth',
         function ($scope,auth) {
 
         }]);
 
-app.controller('',
+app.controller('ContactCtrl',
     ['$scope','auth',
         function ($scope,auth) {
 
         }]);
 
-app.controller('',
-    ['$scope','auth',
-        function ($scope,auth) {
-
-        }]);
