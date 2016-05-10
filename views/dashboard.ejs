@@ -127,6 +127,7 @@
 
             <!-- About Page -->
             <div id="about">
+                <ui-view></ui-view>
                 <!--<h1 class="title color">پروفایل من</h1>-->
 
                 <!--&lt;!&ndash; Left Side &ndash;&gt;-->
@@ -393,6 +394,7 @@
 
             <!-- Resume Page -->
             <div id="resume">
+                <ui-view></ui-view>
                 <!--<h1 class="title color"></h1>-->
 
                 <!--&lt;!&ndash; Left Side &ndash;&gt;-->
@@ -469,6 +471,7 @@
 
             <!-- Portfolio Page -->
             <div id="portfolio">
+                <ui-view></ui-view>
                 <!--<h1 class="page_title title color">تقسم بندی موضوعی</h1>-->
 
                 <!--&lt;!&ndash; Description &ndash;&gt;-->
@@ -1042,6 +1045,7 @@
 
             <!-- Contact Page -->
             <div id="contact">
+                <ui-view></ui-view>
                 <!--<h1 class="title color">ارتباط با ما</h1>-->
 
                 <!--&lt;!&ndash; Description &ndash;&gt;-->
@@ -1210,6 +1214,23 @@
 
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"/>
 <!--[endif]-->
+
+
+<script type="text/ng-template" id="/category.html">
+    <h1>category</h1>
+</script>
+<script type="text/ng-template" id="/profile.html">
+    <h1>profile</h1>
+</script>
+<script type="text/ng-template" id="/question.html">
+    <h1>question</h1>
+</script>
+<script type="text/ng-template" id="/quiz.html">
+    <h1>quiz</h1>
+</script>
+<script type="text/ng-template" id="/contact.html">
+    <h1>contact</h1>
+</script>
 ‍
 </body>
 
