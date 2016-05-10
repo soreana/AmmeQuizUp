@@ -21,27 +21,27 @@ module.exports = router;
 
 var mongoose = require('mongoose');
 var ActivationToken = mongoose.model('ActivationToken');
-var Post = mongoose.model('Post');
+var Category = mongoose.model('Category');
 var Comment = mongoose.model('Comment');
 var User = mongoose.model('User');
 
 router.get('/posts', function (req, res, next) {
-    Post.find(function (err, posts) {
+    Category.find(function (err, categories) {
         if (err)
             return next(err);
 
-        res.json(posts);
+        res.json(categories);
     });
 });
 
 router.post('/posts', auth, function (req, res, next) {
-    var post = new Post(req.body);
-    post.author = req.payload.username;
+    var category = new Category(req.body);
+    category.author = req.payload.username;
 
-    post.save(function (err, next) {
+    category.save(function (err, next) {
         if (err)
             return next(err);
-        res.json(post);
+        res.json(category);
     });
 });
 
@@ -57,27 +57,26 @@ router.param('comment', function (req, res, next, id) {
         req.comment = comment;
         return next();
     });
-
 });
 
-router.put('/posts/:post/comments/:comment/upvote', auth, function (req, res, next) {
+/*router.put('/posts/:post/comments/:comment/upvote', auth, function (req, res, next) {
     req.comment.upvote(function (err, comment) {
         if (err)
             next(err);
         res.json(comment);
     });
-});
+});*/
 
 router.param('post', function (req, res, next, id) {
-    var query = Post.findById(id);
+    var query = Category.findById(id);
 
-    query.exec(function (err, post) {
+    query.exec(function (err, category) {
         if (err)
             return next(err);
-        if (!post)
-            return next(new Error('can\'t find post'));
+        if (!category)
+            return next(new Error('can\'t find category.'));
 
-        req.post = post;
+        req.category = category;
         return next();
     });
 });
@@ -103,33 +102,33 @@ router.param('activationToken', function (req, res, next, id) {
 });
 
 router.get('/posts/:post', function (req, res) {
-    req.post.populate('comments', function (err, post) {
+    req.category.populate('comments', function (err, category) {
         if (err)
             return next(err);
 
-        res.json(post);
+        res.json(category);
     });
 });
 
-router.put('/posts/:post/upvote', auth, function (req, res, next) {
+/*router.put('/posts/:post/upvote', auth, function (req, res, next) {
     req.post.upvote(function (err, post) {
         if (err)
             next(err);
         res.json(post);
     });
-});
+});*/
 
 router.post('/posts/:post/comments', auth, function (req, res, next) {
     var comment = new Comment(req.body);
-    comment.post = req.post;
+    comment.category = req.category;
     comment.author = req.payload.username;
 
     comment.save(function (err, comment) {
         if (err)
             return next(err);
 
-        req.post.comments.push(comment);
-        req.post.save(function (err, post) {
+        req.category.comments.push(comment);
+        req.category.save(function (err, category) {
             if (err)
                 return next(err);
 
@@ -201,8 +200,4 @@ router.post('/login', function (req, res, next) {
             return res.status(401).json(info);
         }
     })(req, res, next);
-})
-
-
-
-
+});
