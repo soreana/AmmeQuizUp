@@ -106,9 +106,8 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
 app.config([
     '$stateProvider',
     '$urlRouterProvider',
-    '$window',
-    
-    function ($stateProvider, $urlRouterProvider,$window) {
+    '$windowProvider',
+    function ($stateProvider, $urlRouterProvider , $windowProvider){
         // $stateProvider
         //     .state('dashboard', {
         //         url: '/dashboard',
@@ -127,6 +126,7 @@ app.config([
                 controller: 'MainCtrl',
                 onEnter: ['$state', 'auth', function ($state, auth) {
                     if (auth.isLoggedIn()) {
+                        var $window = $windowProvider.$get();
                         $window.location.href = '/dashboard';
                     }
                 }]
@@ -228,7 +228,7 @@ app.controller('AuthCtrl',
                 auth.register($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('dashboard');
+                    $state.go('home');
                 });
             };
 
@@ -236,7 +236,7 @@ app.controller('AuthCtrl',
                 auth.login($scope.user).error(function (error) {
                     $scope.error = error;
                 }).then(function () {
-                    $state.go('dashboard');
+                    $state.go('home');
                 });
             };
 
@@ -272,13 +272,6 @@ app.controller('MainCtrl',
             // };
             $scope.isLoggedIn = auth.isLoggedIn;
         }]);
-
-
-// app.controller('DashboardCtrl',
-//     ['$scope', 'posts', 'auth',
-//         function ($scope, posts, auth) {
-//
-//         }]);
 
 app.directive('validateEmail', function () {
     var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/;
