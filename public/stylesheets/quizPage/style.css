@@ -522,13 +522,13 @@ a.btn{
 	width:321px;
 	margin-right: 20px;
 	display: inline-block;
-	float: left;
+	float: right;				/* change */
 }
 
 .content > div .right_side{
 	width: 321px;
 	display: inline-block;
-	float: right;
+	float: left;				/* change */
 }
 
 /*
@@ -1693,6 +1693,22 @@ a.btn{
 
 .content > div#blog .sidebar .tweets .title:after{
 	width: 70px;
+}
+
+#quizAnswers{
+	margin-top:10px;
+	margin-bottom: 10px;
+	width: 90%;
+}
+
+#answerSelect{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+}
+
+#submitQuiz{
+	margin-top: 30px;
 }
 
 /*

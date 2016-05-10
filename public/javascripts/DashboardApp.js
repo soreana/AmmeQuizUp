@@ -51,7 +51,6 @@ app.config([
                 controller: 'ContactCtrl'
             });
 
-        $urlRouterProvider.otherwise('quizHome');
     }
 
 ]);

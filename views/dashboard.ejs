@@ -1048,6 +1048,10 @@
 
             <!-- Blog Page -->
 
+            <div id="blog">
+                <ui-view></ui-view>
+            </div>
+
             <!-- /Blog Page -->
 
             <!-- Contact Page -->
@@ -2160,7 +2164,157 @@
 </script>
 
 <script type="text/ng-template" id="/quiz.html">
-    <h1>quiz</h1>
+
+    <h1 class="title color"></h1>
+    <!-- Left Side -->
+    <div class="left_side">
+
+        <!-- Education -->
+        <div class="education lists">
+            <div class="box_title title">
+                <div class="icon"><i class="fa fa-clock-o"></i></div>
+                <div class="text">سوالات</div>
+                <div class="clear"></div>
+            </div>
+            <div class="items">
+                <!-- question 1 -->
+                <div class="item">
+                    <div class="title">سوال ۱</div>
+                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                class="name">Computer Science</span></div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۲</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۳</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۴</input>
+                    </div>
+                </div>
+
+                <!-- question 2 -->
+                <div class="item">
+                    <div class="title">سوال ۲</div>
+                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                class="name">Computer Science</span></div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۲</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۳</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۴</input>
+                    </div>
+                </div>
+
+                <!-- question 3 -->
+                <div class="item">
+                    <div class="title">سوال ۳</div>
+                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                class="name">Computer Science</span></div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۲</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۳</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۴</input>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- /Education -->
+
+        <!-- Employment -->
+
+
+        <!-- /Employment -->
+
+    </div>
+    <!-- /Left Side -->
+
+
+    <!-- Right Side -->
+    <div class="right_side">
+        <div>
+            <img style="width: 40%" src="images/quizPage/thinking2.png">
+        </div>
+        <!-- Education -->
+        <div class="education lists">
+
+            <div class="items">
+                <!-- question 4 -->
+                <div class="item">
+                    <div class="title">سوال ۴</div>
+                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                class="name">Computer Science</span></div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۲</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۳</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۴</input>
+                    </div>
+                </div>
+
+                <!-- question ۵ -->
+                <div class="item">
+                    <div class="title">سوال ۵</div>
+                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                class="name">Computer Science</span></div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۲</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۳</input>
+                    </div>
+                    <div>
+                        <input type="radio" id="answerSelect">گزینه ۴</input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Education -->
+
+        <!-- Employment -->
+
+
+        <!-- /Employment -->
+
+    </div>
+    <!-- /Right Side -->
+
+
+    <div class="clear"></div>
+
+    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i class="fa fa-download"></i><span> ثبت کوییز </span>
+
+        <div class="clear"></div>
+    </a>
+
 </script>
 
 <script type="text/ng-template" id="/contact.html">
