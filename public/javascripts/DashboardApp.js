@@ -98,3 +98,4 @@ app.controller('NavCtrl',
             $state.go(state);
         }
     }]);
+
