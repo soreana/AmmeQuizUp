@@ -2,8 +2,58 @@
  * Created by AmooQuizGroup
  */
 
-var app = angular.module('dashboardApp', ['ui.router']);
+var app = angular.module('dashboardApp', ['ui.router','ngMaterial','ngMessages', 'material.svgAssetsCache']);
 
+app.factory('auth', ['$http', '$window', function ($http, $window) {
+    var auth = {};
+
+    auth.saveToken = function (token) {
+        $window.localStorage['flapper-news-token'] = token;
+    };
+
+    auth.getToken = function () {
+        return $window.localStorage['flapper-news-token'];
+    };
+
+    auth.isLoggedIn = function () {
+        var token = auth.getToken();
+        if (token) {
+            var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+            var temp = payload.exp > Date.now() / 1000;
+            return temp;
+        } else {
+            return false;
+        }
+    };
+
+    auth.currentUser = function () {
+        if (auth.isLoggedIn()) {
+            var token = auth.getToken();
+            var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+            return payload.username;
+        }
+    };
+
+    auth.register = function (user) {
+        return $http.post('/register', user).success(function (data) {
+            auth.saveToken(data.token);
+        });
+    };
+
+    auth.login = function (user) {
+        return $http.post('/login', user).success(function (data) {
+            auth.saveToken(data.token);
+        });
+    };
+
+    auth.logout = function () {
+        $window.localStorage.removeItem('flapper-news-token');
+    };
+
+    return auth;
+}]);
 app.config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -67,9 +117,41 @@ app.controller('ProfileCtrl',
 
         }]);
 
+function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+        $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+        $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+    };
+}
+
 app.controller('QuestionCtrl',
-    ['$scope','auth',
-        function ($scope,auth) {
+    ['$scope','auth','$mdDialog','$mdMedia',
+        function ($scope,auth,$mdDialog,$mdMedia) {
+            $scope.showAdvanced = function(ev) {
+                console.log('sinai is here.');
+                var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+
+                $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: 'dialog1.tmpl.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                    .then(function (answer) {
+                        $scope.status = 'You said the information was "' + answer + '".';
+                    }, function () {
+                        $scope.status = 'You cancelled the dialog.';
+                    });
+            }
 
         }]);
 
