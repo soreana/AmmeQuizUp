@@ -7,7 +7,8 @@
     <link href="/stylesheets/quizPage/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="/stylesheets/quizPage/animate.min.css" type="text/css" rel="stylesheet">
     <link href="/stylesheets/quizPage/page_animations.css" type="text/css" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.8/angular-material.css'>
+    <link href="/stylesheets/quizPage/angular-material.css" type="text/css" rel="stylesheet">
+    <!--<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.8/angular-material.css'>-->
     <script src="javascripts/angular.min.js"></script>
     <script src="javascripts/angular-ui-router.js"></script>
     <script src='javascripts/angular-animate.min.js'></script>
@@ -1182,7 +1183,7 @@
 <!-- /Loading Overlay -->
 
 <!--Question Pop Up Window -->
-
+<!--
 <div id="QuestionPopUp" class="container">
 
     <div id="dialog" class="window">
@@ -1214,7 +1215,7 @@
 
     </div>
 </div>
-
+-->
 
 
 
@@ -1267,11 +1268,11 @@
     <a href="#" class="cv_download_btn">جستجو</a>
 </script>
 
-<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+<script type="text/ng-template" id="dialog1.tmpl.html" ><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Mango (Fruit)</h2>
+                <h2>فرم اضافه کردن سوال</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -1280,34 +1281,40 @@
         </md-toolbar>
 
         <md-dialog-content>
-            <div class="md-dialog-content">
-                <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
-                <p>
-                    The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
-                </p>
+            <div id="dialog" class="window">
 
-                <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="img/mangues.jpg">
+                <div class="form-group-top">
+                    <label class="filter-col" for="pref-search">متن سوال</label>
+                    <input type="text" class="form-control input-sm" id="pref-search" placeholder="متن سوال را وارد کنید...">
 
-                <p>
-                    The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the "common mango" or "Indian mango"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.
-                </p>
-                <p>
-                    It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.
-                </p>
+                </div>
+
+                <div class="form-group">
+                    <label class="filter-col" for="pref-orderby">دسته بندی</label>
+
+                    <select id="pref-orderby" class="form-control">s
+                        <option value
+                        ""> انتخاب کنید...
+                        <option>
+                        <option>کامپیوتر</option>
+                        <option>برق</option>
+                        <option>شیمی</option>
+                    </select>
+                </div>
+
+
             </div>
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-                More on Wikipedia
-            </md-button>
-            <span flex></span>
-            <md-button ng-click="answer('not useful')">
-                Not Useful
-            </md-button>
-            <md-button ng-click="answer('useful')" style="margin-right:20px;">
-                Useful
-            </md-button>
+            <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
+                <!--More on Wikipedia-->
+            <!--</md-button>-->
+            <!--<span flex></span>-->
+            <!--<md-button ng-click="answer('not useful')">-->
+                <!--Not Useful-->
+            <!--</md-button>-->
+            <md-button ng-click="answer('useful')" style="margin-right:20px;">ثبت سوال</md-button>
         </md-dialog-actions>
     </form>
     </md-dialog>
@@ -1593,12 +1600,15 @@
             <div class="items">
                 <div class="item">
                     <div class="title">سوال ۱</div>
+
                     <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
                                 class="name">Computer Science</span></div>
                     <div class="text">
                         ***
                     </div>
                 </div>
+                <input type="text">
+
 
             </div>
         </div>

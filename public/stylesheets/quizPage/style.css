@@ -4037,14 +4037,9 @@ img.mfp-img {
 
 
 
-
-
-
-
         #QuestionPopUp .window {
-            position: absolute;
-            left: 0;
-            top: 0;
+
+
             width: 440px;
             height: 200px;
             display: none;
@@ -4056,7 +4051,15 @@ img.mfp-img {
        		
         }
 
-        #QuestionPopUp #dialog {
+
+
+	#QuestionPopUp .container {
+		}
+
+
+
+
+	#QuestionPopUp #dialog {
             width: 750px;
             height: 300px;
             padding: 10px;
@@ -4140,8 +4143,13 @@ img.mfp-img {
 
 	#QuestionPopUp{
 		direction: rtl;
-		visibility: hidden;
 	}
 
+	#dialog1.tmpl.html {
+		width: inherit;
+	}
 
+	.md-dialog.md-transition-in {
+		width: inherit;
+	}
 }
