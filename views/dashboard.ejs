@@ -1669,6 +1669,26 @@
 </script>
 
 <script type="text/ng-template" id="/category.html">
+
+    <div id="sample-category">
+        <div ng-repeat="category in categories" >
+            <h2 ng-show="category.show">{{category.name}} -- {{category.type}}</h2>
+        </div>
+        <div ng-click="filterByType('1')">
+            <p>filter</p>
+        </div>
+
+        <div ng-click="addCategory(sampleCategory)">
+            <p>add</p>
+        </div>
+
+
+        <div ng-click="removeCategory(sampleCategory.name)">
+            <p>remove</p>
+        </div>
+    </div>
+
+    <div id="sinai-don-t-touch">{{}}</div>
     <h1 class="page_title title color">تقسم بندی موضوعی</h1>
 
     <!-- Description -->
