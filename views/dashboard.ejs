@@ -1668,6 +1668,12 @@
             <p>add</p>
         </div>
 
+        <form ng-submit="addCategory(sampleCategory)">
+        <input ng-model="sampleCategory.name"/>
+        <input ng-model="sampleCategory.type"/>
+            <button></button>
+        </form>
+
 
         <div ng-click="removeCategory(sampleCategory.name)">
             <p>remove</p>
