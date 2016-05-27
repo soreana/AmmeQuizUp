@@ -55,7 +55,7 @@
 <div id="wrapper">
 
     <!-- Social Icons(Used for mobile) -->
-    <div class="social_icons mobile">
+    <div class="social_icons mobile" ng-controller="NavCtrl">
         <ul>
             <li>
                 <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
@@ -1142,10 +1142,10 @@
     <!-- /Main Content -->
 
     <!-- Social Buttons -->
-    <div class="social_icons">
+    <div class="social_icons" ng-controller="NavCtrl">
         <ul>
-            <li>
-                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <li ng-click="logout()">
+                <a href="#" class="twitter"><i class="fa fa-sign-out"></i></a>
             </li>
             <li>
                 <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -1217,11 +1217,6 @@
     </div>
 </div>
 -->
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5b984898900c1c16ea8c40ebbd4ae98ff10d9d4e
 
 <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/mixitup.min.js"></script>
@@ -1361,13 +1356,14 @@
 </script>
 
 <script type="text/ng-template" id="/profile.html">
+    {{user}}
     <h1 class="title color">پروفایل من</h1>
 
     <!-- Left Side -->
     <div class="right_side">
 
         <!-- Who i am -->
-        <div class="box who_i_am">
+        <div class="box who_i_am" src="public/"+{{getran}}>
             <div class="title">
                 <div class="icon"><i class="fa fa-user"></i></div>
                 <div class="text">مشخصات فردی</div>
@@ -1707,21 +1703,20 @@
 <script type="text/ng-template" id="/category.html">
 
     <div id="sample-category">
+
+        <h1 class="page_title title color">تقسیم بندی موضوعی</h1>
+
         <div ng-repeat="category in categories">
             <h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>
         </div>
+
         <div ng-click="filterByType('1')">
             <p>filter</p>
         </div>
 
-        <div ng-click="addCategory(sampleCategory)">
-            <p>add</p>
-        </div>
-
         <form ng-submit="addCategory(sampleCategory)">
-        <input ng-model="sampleCategory.name"/>
-        <input ng-model="sampleCategory.type"/>
-            <button></button>
+            <input ng-model="sampleCategory.title"/>
+            <button>افزودن دسته بندی</button>
         </form>
 
 
@@ -1731,7 +1726,6 @@
     </div>
 
     <div id="sinai-don-t-touch">{{}}</div>
-    <h1 class="page_title title color">تقسم بندی موضوعی</h1>
 
     <!-- Description -->
 
@@ -1739,26 +1733,14 @@
 
     <!-- Portfolio Items Type Selector -->
     <ul class="portfolio_selector">
-        <li class="filter active btn" data-filter="all">همه</li>
-        <li class="filter btn" data-filter="webdesign">کامپیوتر</li>
-        <li class="filter btn" data-filter="webdevelopment">برق</li>
-        <li class="filter btn" data-filter="logodesign">Lفناوری اطلاعات</li>
+        <li class="filter active btn" data-filter="all" ng-click="disableFilters()">همه</li>
+        <li class="filter btn" ng-repeat="category in categories">{{category.title}}</li>
     </ul>
     <!-- /Portfolio Items Type Selector -->
 
     <!-- Portfolio Items -->
     <ul id="portfolio_grid">
         <li class="mix webdesign">
-            <a href="#portfolio_popup">
-                <img src="/images/quizPage/portfolio_1.jpg" alt="img"/>
-
-                <div class="main">
-                    <div class="inner">
-                        <i class="fa fa-picture-o licon"></i>
-                        <i class="fa fa-search ricon"></i>
-                    </div>
-                </div>
-            </a>
 
             <div class="popup_information">
                 <div class="top">
@@ -2501,9 +2483,9 @@
     <!-- /Contact Form -->
 
     <!-- Social Buttons -->
-    <div class="social_btns">
+    <div class="social_btns" ng-controller="NavCtrl">
         <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-        <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+        <a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>
         <a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>
         <a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>
         <a href="#"><i class="fa fa-github"></i><span>Github</span></a>
