@@ -1283,18 +1283,21 @@
 
             <md-dialog-content>
                 <div id="dialog" class="window">
+<<<<<<< HEAD
 
+=======
+>>>>>>> edb18d1a51775e9a01506e994c8a3a89604b7fb8
                     <h1 ng-show="errMessage">{{errMessage}}</h1>
 
-                    <div class="form-group-top">
+                    <div class="form-group-top" style="margin-bottom: 5%">
                         <label class="filter-col" for="pref-search">متن سوال</label>
-                        <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.body"
+                        <input type="text" class="form-control input-sm" style="margin-right: 7%" id="pref-search" ng-model="newQuestion.body"
                                placeholder="متن سوال را وارد کنید...">
                     </div>
 
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[0].answer" ng-click="setAnswer(0)">گزینه اول</md-checkbox>
+                            <md-checkbox ng-model="newQuestion.choices[0].answer" ng-click="setAnswer(0)"> گزینه ۱  </md-checkbox>
                             <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[0].title"
                                    placeholder="گزینه اول ">
                         </div>
@@ -1302,14 +1305,14 @@
 
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[1].answer" ng-click="setAnswer(1)">گزینه دوم</md-checkbox>
+                            <md-checkbox ng-model="newQuestion.choices[1].answer" ng-click="setAnswer(1)">  گزینه ۲ </md-checkbox>
                             <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[1].title"
                                    placeholder="گزینه دوم ">
                         </div>
                     </div>
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[2].answer" ng-click="setAnswer(2)">گزینه سوم</md-checkbox>
+                            <md-checkbox ng-model="newQuestion.choices[2].answer" ng-click="setAnswer(2)">  گزینه ۳</md-checkbox>
                             <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[2].title"
                                    placeholder="گزینه سوم ">
                         </div>
@@ -1317,7 +1320,7 @@
 
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[3].answer" ng-click="setAnswer(3)">گزینه چهارم</md-checkbox>
+                            <md-checkbox ng-model="newQuestion.choices[3].answer" ng-click="setAnswer(3)"> گزینه ۴</md-checkbox>
                             <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[3].title"
                                    placeholder="گزینه چهارم">
                         </div>
@@ -1356,112 +1359,8 @@
 </script>
 
 <script type="text/ng-template" id="/profile.html">
-    {{user}}
+
     <h1 class="title color">پروفایل من</h1>
-
-    <!-- Left Side -->
-    <div class="right_side">
-
-        <!-- Who i am -->
-        <div class="box who_i_am" src="public/"+{{getran}}>
-            <div class="title">
-                <div class="icon"><i class="fa fa-user"></i></div>
-                <div class="text">مشخصات فردی</div>
-                <div class="clear"></div>
-            </div>
-
-            <!-- Description -->
-            <div class="text">
-                My name is <strong>John Doe</strong> and I'm a <strong>Web Developer,
-                    UI Designer and Graphic &amp; Web Designer</strong>
-                located in <strong>New York City, United States</strong>.
-            </div>
-            <!-- /Description -->
-
-            <!-- Personal Details -->
-            <div class="personal_details">
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
-                    <div class="text">John Doe</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>
-                    <div class="text">January 17, 1992</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-map-marker"></i><span>آدرس</span></div>
-                    <div class="text">New York City</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
-                    <div class="text">+ 123-456-7890</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-envelope"></i><span>پست الکترونیک</span></div>
-                    <div class="text">john@site.com</div>
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-external-link"></i><span>Website</span></div>
-                    <div class="text"><a href="#">www.website.com</a></div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <!-- /Personal Details -->
-
-        </div>
-        <!-- /Who i am -->
-
-        <!-- What i do -->
-        <!--
-        <div class="box what_i_do">
-        <div class="title">
-        <div class="icon"><i class="fa fa-certificate"></i></div>
-        <div class="text">WHAT I DO</div>
-        <div class="clear"></div>
-        </div>
-        <div class="text">
-        Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Praesent condimentum sed elit
-        vitae tristique. Aliquam erat volutpat. Nunc sit
-        amet cursus libero. In fringilla egestas ornare.
-        Vivamus enim tortor, ultricies nec lectus eget,
-        interdum elementum elit. Ut laoreet neque sit
-        amet velit auctor tempus. In ac lectus felis.
-        </div>
-        </div>
-        -->
-        <!-- /What i do -->
-
-        <!-- Tools i use -->
-        <!--
-        <div class="box tools_i_use">
-        <div class="title">
-        <div class="icon"><i class="fa fa-wrench"></i></div>
-        <div class="text">TOOLS I USE</div>
-        <div class="clear"></div>
-        </div>
-        <div class="tools">
-        <a href="#" class="tool btn">Photoshop</a>
-        <a href="#" class="tool btn">jQuery</a>
-        <a href="#" class="tool btn">Wordpress</a>
-        <a href="#" class="tool btn">After Effects</a>
-        <a href="#" class="tool btn">Joomla</a>
-        <a href="#" class="tool btn">Bootstrap</a>
-        <a href="#" class="tool btn">Drupal</a>
-        </div>
-        </div>
-        -->
-        <!-- /Tools i use -->
-
-    </div>
-    <!-- /Left Side -->
-
-    <!-- Right Side -->
     <div class="right_side">
 
         <!-- About Pictures -->
@@ -1577,44 +1476,154 @@
         <!-- /Testimonials -->
 
     </div>
+    <!-- Left Side -->
+    <div class="right_side">
+
+        <!-- Who i am -->
+        <div class="box who_i_am" src="public/"+{{getran}}>
+            <div class="title">
+                <div class="text">مشخصات فردی</div>
+                <div class="icon"><i class="fa fa-user"></i></div>
+
+                <div class="clear"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="text">
+                My name is <strong>John Doe</strong> and I'm a <strong>Web Developer,
+                    UI Designer and Graphic &amp; Web Designer</strong>
+                located in <strong>New York City, United States</strong>.
+            </div>
+            <!-- /Description -->
+
+            <!-- Personal Details -->
+            <div class="personal_details">
+                <div class="item title">
+                    <div class="text">John Doe</div>
+                    <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
+
+                    <div class="clear"></div>
+                </div>
+                <!--<div class="item title">-->
+                    <!--<div class="text">January 17, 1992</div>-->
+                    <!--<div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>-->
+
+                    <!--<div class="clear"></div>-->
+                <!--</div>-->
+                <div class="item title">
+                    <div class="text">New York City</div>
+                    <div class="icon"><i class="fa fa-map-marker"></i><span>استان</span></div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="item title">
+                    <div class="text">+ 123-456-7890</div>
+                    <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="item title">
+                    <div class="text">john@site.com</div>
+                    <div class="icon"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="item title">
+                    <div class="icon"><i class="fa fa-external-link"></i><span>Website</span></div>
+                    <div class="text"><a href="#">www.website.com</a></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- /Personal Details -->
+
+        </div>
+        <!-- /Who i am -->
+
+        <!-- What i do -->
+        <!--
+        <div class="box what_i_do">
+        <div class="title">
+        <div class="icon"><i class="fa fa-certificate"></i></div>
+        <div class="text">WHAT I DO</div>
+        <div class="clear"></div>
+        </div>
+        <div class="text">
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Praesent condimentum sed elit
+        vitae tristique. Aliquam erat volutpat. Nunc sit
+        amet cursus libero. In fringilla egestas ornare.
+        Vivamus enim tortor, ultricies nec lectus eget,
+        interdum elementum elit. Ut laoreet neque sit
+        amet velit auctor tempus. In ac lectus felis.
+        </div>
+        </div>
+        -->
+        <!-- /What i do -->
+
+        <!-- Tools i use -->
+        <!--
+        <div class="box tools_i_use">
+        <div class="title">
+        <div class="icon"><i class="fa fa-wrench"></i></div>
+        <div class="text">TOOLS I USE</div>
+        <div class="clear"></div>
+        </div>
+        <div class="tools">
+        <a href="#" class="tool btn">Photoshop</a>
+        <a href="#" class="tool btn">jQuery</a>
+        <a href="#" class="tool btn">Wordpress</a>
+        <a href="#" class="tool btn">After Effects</a>
+        <a href="#" class="tool btn">Joomla</a>
+        <a href="#" class="tool btn">Bootstrap</a>
+        <a href="#" class="tool btn">Drupal</a>
+        </div>
+        </div>
+        -->
+        <!-- /Tools i use -->
+
+    </div>
+    <!-- /Left Side -->
+
+    <!-- Right Side -->
+
     <!-- /Right Side -->
 
     <div class="clear"></div>
 
     <!-- Awards -->
-    <div class="box awards">
-        <div class="title">
-            <div class="icon"><i class="fa fa-trophy"></i></div>
-            <div class="text">کوییز های من</div>
-            <div class="clear"></div>
-        </div>
-        <div class="awards">
-            <div class="award">
-                <div class="date">2014</div>
-                <div class="body">
-                    <div class="award_title">1rst Award &bull; Name of Institute</div>
-                    MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="award">
-                <div class="date">2013</div>
-                <div class="body">
-                    <div class="award_title">2nd Award &bull; Name of Institute</div>
-                    MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="award">
-                <div class="date">2012</div>
-                <div class="body">
-                    <div class="award_title">3rd Award &bull; Name of Institute</div>
-                    MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="box awards">-->
+        <!--<div class="title">-->
+            <!--<div class="icon"><i class="fa fa-trophy"></i></div>-->
+            <!--<div class="text">کوییز های من</div>-->
+            <!--<div class="clear"></div>-->
+        <!--</div>-->
+        <!--<div class="awards">-->
+            <!--<div class="award">-->
+                <!--<div class="date">2014</div>-->
+                <!--<div class="body">-->
+                    <!--<div class="award_title">1rst Award &bull; Name of Institute</div>-->
+                    <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+                <!--</div>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--<div class="award">-->
+                <!--<div class="date">2013</div>-->
+                <!--<div class="body">-->
+                    <!--<div class="award_title">2nd Award &bull; Name of Institute</div>-->
+                    <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+                <!--</div>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--<div class="award">-->
+                <!--<div class="date">2012</div>-->
+                <!--<div class="body">-->
+                    <!--<div class="award_title">3rd Award &bull; Name of Institute</div>-->
+                    <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+                <!--</div>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <!-- /Awards -->
 
     <div class="clear"></div>
@@ -1635,8 +1644,8 @@
             </div>
             <div class="items">
                 <div class="item">
-                    <div class="title">سوال ۱
-                        <label for="category" style="margin-right: 82%"> category </label>
+                    <div class="title">سوال ۱<label for="category" style="margin-right: 82%"> category </label>
+
                     </div>
 
 
