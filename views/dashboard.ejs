@@ -1736,9 +1736,14 @@
         </form>
 
 
-        <div ng-click="removeCategory(sampleCategory.title)">
-            <p>remove</p>
-        </div>
+        <form ng-submit="removeCategory(sampleCategory.title)">
+            <select id="pref-orderby" class="form-control">
+                <option ng-repeat="category in categories">{{category.title}}</option>
+            </select>
+            <button>حذف دسته</button>
+        </form>
+
+
     </div>
 
     <div id="sinai-don-t-touch">{{}}</div>
@@ -2452,7 +2457,7 @@
     <!-- /Description -->
 
     <!-- Google Map -->
-    <div id="gmap"></div>
+    <!--<div id="gmap"></div>-->
     <!-- /Google Map -->
 
     <!-- Info -->
@@ -2484,8 +2489,8 @@
         </p>
 
         <div class="contact_form">
-            <input type="text" value="" placeholder="نام" class="name"/>
-            <input type="email" value="" placeholder="پست الکترونیک" class="email"/>
+            <input type="text" value="" placeholder="نام" class="name" style="width: inherit"/>
+            <input type="email" value="" placeholder="پست الکترونیک" class="email"style="width: inherit"/>
             <textarea class="message" placeholder="پیام"></textarea>
             <input type="button" value="ارسال پیام" class="btn send_message_btn" name="submit"/>
             <span class="message"></span>
