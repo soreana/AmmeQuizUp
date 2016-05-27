@@ -7,7 +7,8 @@
     <link href="/stylesheets/quizPage/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="/stylesheets/quizPage/animate.min.css" type="text/css" rel="stylesheet">
     <link href="/stylesheets/quizPage/page_animations.css" type="text/css" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.8/angular-material.css'>
+    <link href="/stylesheets/quizPage/angular-material.css" type="text/css" rel="stylesheet">
+    <!--<link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.8/angular-material.css'>-->
     <script src="javascripts/angular.min.js"></script>
     <script src="javascripts/angular-ui-router.js"></script>
     <script src='javascripts/angular-animate.min.js'></script>
@@ -43,7 +44,9 @@
 
 <script>
     function showQuestionPopUp() {
+        console.log("i am here");
         document.getElementById("QuestionPopUp").style.visibility = "visible";
+
     }
 </script>
 
@@ -80,7 +83,8 @@
     <div class="main_menu" ng-controller="NavCtrl">
         <ul>
             <li>
-                <a href="#home" class="active home" data-id="1" ng-click="gotoState('quizHome')"><i class="fa fa-home"></i></a>
+                <a href="#home" class="active home" data-id="1" ng-click="gotoState('quizHome')"><i
+                            class="fa fa-home"></i></a>
             </li>
             <li>
                 <a href="#about" class="about" data-id="2" ng-click="gotoState('profile')"><i
@@ -1213,6 +1217,11 @@
     </div>
 </div>
 -->
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 5b984898900c1c16ea8c40ebbd4ae98ff10d9d4e
 
 <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/mixitup.min.js"></script>
@@ -1263,55 +1272,91 @@
     <a href="#" class="cv_download_btn">جستجو</a>
 </script>
 
-<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-    <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>فرم اضافه کردن سوال</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-
-        <md-dialog-content>
-            <div id="dialog" class="window">
-
-                <div class="form-group-top">
-                    <label class="filter-col" for="pref-search">متن سوال</label>
-                    <input type="text" class="form-control input-sm" id="pref-search" placeholder="متن سوال را وارد کنید...">
-
+<script type="text/ng-template" id="dialog1.tmpl.html">
+    <md-dialog
+            aria-label="Mango (Fruit)" ng-cloak>
+        <form>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>فرم اضافه کردن سوال</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel()">
+                        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                    </md-button>
                 </div>
+            </md-toolbar>
 
-                <div class="form-group">
-                    <label class="filter-col" for="pref-orderby">دسته بندی</label>
+            <md-dialog-content>
+                <div id="dialog" class="window">
+                    {{newQuestion}}
+                    <h1 ng-show="errMessage">{{errMessage}}</h1>
 
-                    <select id="pref-orderby" class="form-control">s
-                        <option value
-                        ""> انتخاب کنید...
-                        <option>
-                        <option>کامپیوتر</option>
-                        <option>برق</option>
-                        <option>شیمی</option>
-                    </select>
+                    <div class="form-group-top">
+                        <label class="filter-col" for="pref-search">متن سوال</label>
+                        <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.body"
+                               placeholder="متن سوال را وارد کنید...">
+                    </div>
+
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[0].answer" ng-click="setAnswer(0)">گزینه اول</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[0].title"
+                                   placeholder="گزینه اول ">
+                        </div>
+                    </div>
+
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[1].answer" ng-click="setAnswer(1)">گزینه دوم</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[1].title"
+                                   placeholder="گزینه دوم ">
+                        </div>
+                    </div>
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[2].answer" ng-click="setAnswer(2)">گزینه سوم</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[2].title"
+                                   placeholder="گزینه سوم ">
+                        </div>
+                    </div>
+
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[3].answer" ng-click="setAnswer(3)">گزینه چهارم</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[3].title"
+                                   placeholder="گزینه چهارم">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top: 5%;">
+                        <label class="filter-col" for="pref-orderby">دسته بندی</label>
+
+                        <select id="pref-orderby" class="form-control" ng-model="newQuestion.categoryName">
+                            <option ng-repeat="category in categories">{{category.title}}</option>
+                            <!--
+                            <option value
+                            ""> انتخاب کنید...
+                            <option>
+                            <option>کامپیوتر</option>
+                            <option>برق</option>
+                            <option>شیمی</option>
+                            -->
+                        </select>
+                    </div>
                 </div>
+            </md-dialog-content>
 
-
-            </div>
-        </md-dialog-content>
-
-        <md-dialog-actions layout="row">
-            <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
+            <md-dialog-actions layout="row">
+                <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
                 <!--More on Wikipedia-->
-            <!--</md-button>-->
-            <!--<span flex></span>-->
-            <!--<md-button ng-click="answer('not useful')">-->
+                <!--</md-button>-->
+                <!--<span flex></span>-->
+                <!--<md-button ng-click="answer('not useful')">-->
                 <!--Not Useful-->
-            <!--</md-button>-->
-            <md-button ng-click="answer('useful')" style="margin-right:20px;">ثبت سوال</md-button>
-        </md-dialog-actions>
-    </form>
+                <!--</md-button>-->
+                <md-button ng-click="answer('useful')" style="margin-right:20px;">ثبت سوال</md-button>
+            </md-dialog-actions>
+        </form>
     </md-dialog>
 </script>
 
@@ -1589,12 +1634,16 @@
         <div class="education lists">
             <div class="box_title title" dir="rtl">
                 <div class="icon"><i class="fa fa-clock-o"></i></div>
-                <div class="text" >سوالات</div>
+                <div class="text">سوالات</div>
                 <div class="clear"></div>
             </div>
             <div class="items">
                 <div class="item">
-                    <div class="title">سوال ۱</div>
+                    <div class="title">سوال ۱
+                        <label for="category" style="margin-right: 82%"> category </label>
+                    </div>
+
+
                     <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
                                 class="name">Computer Science</span></div>
                     <div class="text">
@@ -1608,7 +1657,7 @@
 
         <!-- Employment -->
         <div class="employment lists">
-            <div class="box_title title" >
+            <div class="box_title title">
                 <div class="icon"><i class="fa fa-bolt"></i></div>
                 <div class="text">سوال جدید</div>
                 <div class="clear"></div>
@@ -1617,6 +1666,7 @@
         </div>
 
         <a class="btn" ng-click="showAdvanced($event)"><i class="fa fa-download"></i><span> افزودن سوال </span>
+
 
             <div class="clear"></div>
         </a>
@@ -1657,8 +1707,8 @@
 <script type="text/ng-template" id="/category.html">
 
     <div id="sample-category">
-        <div ng-repeat="category in categories" >
-            <h2 ng-show="category.show">{{category.name}} -- {{category.type}}</h2>
+        <div ng-repeat="category in categories">
+            <h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>
         </div>
         <div ng-click="filterByType('1')">
             <p>filter</p>
@@ -1675,7 +1725,7 @@
         </form>
 
 
-        <div ng-click="removeCategory(sampleCategory.name)">
+        <div ng-click="removeCategory(sampleCategory.title)">
             <p>remove</p>
         </div>
     </div>
@@ -2319,7 +2369,6 @@
                 </div>
 
 
-
             </div>
         </div>
         <!-- /Education -->
@@ -2394,7 +2443,8 @@
 
     <div class="clear"></div>
 
-    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i class="fa fa-download"></i><span> ثبت کوییز </span>
+    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i
+                class="fa fa-download"></i><span> ثبت کوییز </span>
 
         <div class="clear"></div>
     </a>
