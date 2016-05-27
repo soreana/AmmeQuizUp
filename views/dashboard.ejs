@@ -83,7 +83,8 @@
     <div class="main_menu" ng-controller="NavCtrl">
         <ul>
             <li>
-                <a href="#home" class="active home" data-id="1" ng-click="gotoState('quizHome')"><i class="fa fa-home"></i></a>
+                <a href="#home" class="active home" data-id="1" ng-click="gotoState('quizHome')"><i
+                            class="fa fa-home"></i></a>
             </li>
             <li>
                 <a href="#about" class="about" data-id="2" ng-click="gotoState('profile')"><i
@@ -1271,55 +1272,91 @@
     <a href="#" class="cv_download_btn">جستجو</a>
 </script>
 
-<script type="text/ng-template" id="dialog1.tmpl.html" ><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-    <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>فرم اضافه کردن سوال</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-
-        <md-dialog-content>
-            <div id="dialog" class="window">
-
-                <div class="form-group-top">
-                    <label class="filter-col" for="pref-search">متن سوال</label>
-                    <input type="text" class="form-control input-sm" id="pref-search" placeholder="متن سوال را وارد کنید...">
-
+<script type="text/ng-template" id="dialog1.tmpl.html">
+    <md-dialog
+            aria-label="Mango (Fruit)" ng-cloak>
+        <form>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>فرم اضافه کردن سوال</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel()">
+                        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                    </md-button>
                 </div>
+            </md-toolbar>
 
-                <div class="form-group" style="padding-top: 5%;">
-                    <label class="filter-col" for="pref-orderby" >دسته بندی</label>
+            <md-dialog-content>
+                <div id="dialog" class="window">
+                    {{newQuestion}}
+                    <h1 ng-show="errMessage">{{errMessage}}</h1>
 
-                    <select id="pref-orderby" class="form-control">s
-                        <option value
-                        ""> انتخاب کنید...
-                        <option>
-                        <option>کامپیوتر</option>
-                        <option>برق</option>
-                        <option>شیمی</option>
-                    </select>
+                    <div class="form-group-top">
+                        <label class="filter-col" for="pref-search">متن سوال</label>
+                        <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.body"
+                               placeholder="متن سوال را وارد کنید...">
+                    </div>
+
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[0].answer" ng-click="setAnswer(0)">گزینه اول</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[0].title"
+                                   placeholder="گزینه اول ">
+                        </div>
+                    </div>
+
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[1].answer" ng-click="setAnswer(1)">گزینه دوم</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[1].title"
+                                   placeholder="گزینه دوم ">
+                        </div>
+                    </div>
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[2].answer" ng-click="setAnswer(2)">گزینه سوم</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[2].title"
+                                   placeholder="گزینه سوم ">
+                        </div>
+                    </div>
+
+                    <div class="radio">
+                        <div class="form-group-top">
+                            <md-checkbox ng-model="newQuestion.choices[3].answer" ng-click="setAnswer(3)">گزینه چهارم</md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[3].title"
+                                   placeholder="گزینه چهارم">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top: 5%;">
+                        <label class="filter-col" for="pref-orderby">دسته بندی</label>
+
+                        <select id="pref-orderby" class="form-control" ng-model="newQuestion.categoryName">
+                            <option ng-repeat="category in categories">{{category.title}}</option>
+                            <!--
+                            <option value
+                            ""> انتخاب کنید...
+                            <option>
+                            <option>کامپیوتر</option>
+                            <option>برق</option>
+                            <option>شیمی</option>
+                            -->
+                        </select>
+                    </div>
                 </div>
+            </md-dialog-content>
 
-
-            </div>
-        </md-dialog-content>
-
-        <md-dialog-actions layout="row">
-            <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
+            <md-dialog-actions layout="row">
+                <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
                 <!--More on Wikipedia-->
-            <!--</md-button>-->
-            <!--<span flex></span>-->
-            <!--<md-button ng-click="answer('not useful')">-->
+                <!--</md-button>-->
+                <!--<span flex></span>-->
+                <!--<md-button ng-click="answer('not useful')">-->
                 <!--Not Useful-->
-            <!--</md-button>-->
-            <md-button ng-click="answer('useful')" style="margin-right:20px;">ثبت سوال</md-button>
-        </md-dialog-actions>
-    </form>
+                <!--</md-button>-->
+                <md-button ng-click="answer('useful')" style="margin-right:20px;">ثبت سوال</md-button>
+            </md-dialog-actions>
+        </form>
     </md-dialog>
 </script>
 
@@ -1597,7 +1634,7 @@
         <div class="education lists">
             <div class="box_title title" dir="rtl">
                 <div class="icon"><i class="fa fa-clock-o"></i></div>
-                <div class="text" >سوالات</div>
+                <div class="text">سوالات</div>
                 <div class="clear"></div>
             </div>
             <div class="items">
@@ -1620,7 +1657,7 @@
 
         <!-- Employment -->
         <div class="employment lists">
-            <div class="box_title title" >
+            <div class="box_title title">
                 <div class="icon"><i class="fa fa-bolt"></i></div>
                 <div class="text">سوال جدید</div>
                 <div class="clear"></div>
@@ -1629,8 +1666,6 @@
         </div>
 
         <a class="btn" ng-click="showAdvanced($event)"><i class="fa fa-download"></i><span> افزودن سوال </span>
-
-
 
 
             <div class="clear"></div>
@@ -1672,7 +1707,7 @@
 <script type="text/ng-template" id="/category.html">
 
     <div id="sample-category">
-        <div ng-repeat="category in categories" >
+        <div ng-repeat="category in categories">
             <h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>
         </div>
         <div ng-click="filterByType('1')">
@@ -2328,7 +2363,6 @@
                 </div>
 
 
-
             </div>
         </div>
         <!-- /Education -->
@@ -2403,7 +2437,8 @@
 
     <div class="clear"></div>
 
-    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i class="fa fa-download"></i><span> ثبت کوییز </span>
+    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i
+                class="fa fa-download"></i><span> ثبت کوییز </span>
 
         <div class="clear"></div>
     </a>

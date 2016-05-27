@@ -4,15 +4,15 @@
 
 var app = angular.module('dashboardApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
-app.factory('categories', ['$http' , 'auth' ,function ($http,auth) {
+app.factory('categories', ['$http', 'auth', function ($http, auth) {
     var o = {};
     o.categories = [
-        {title: "numberOne", type: "1", show: true,_id:"januaries"}
+        {title: "numberOne", type: "1", show: true, _id: "januaries"}
     ];
-    
+
     o.getAll = function () {
         return $http.get('/posts').success(function (data) {
-            for(var i=0; i<data.length;i++){
+            for (var i = 0; i < data.length; i++) {
                 data[i].show = true;
             }
             angular.copy(data, o.categories);
@@ -29,22 +29,49 @@ app.factory('categories', ['$http' , 'auth' ,function ($http,auth) {
             o.categories.push(data);
         });
     };
+    
+    o.getId = function (categoryName) {
+        for(var i=0;i<o.categories.length;i++)
+            if(o.categories[i].title === categoryName)
+                return o.categories[i]._id;
+    };
 
-    o.removeCategory = function(categoryTitle){
-        var id ;
-        for(var i=0;i< o.categories.length;i++){
-            if(o.categories[i].title == categoryTitle) {
+    o.saveNewQuestion = function (question, next) {
+        console.log(question);
+        if (question.categoryName === '') {
+            next(new Error('دسته بندی نمی تواند خالی باشد.'));
+        }
+        if (question.body === '')
+            next(new Error('متن سوال نمی تواند خالی باشد.'));
+        if (question.choices[0].title === '' || question.choices[1].title === ''
+            || question.choices[2].title === '' || question.choices[3].title === '')
+            next(new Error('جواب ها نمی توانند خالی باشند.'));
+        if( !(question.choices[0].answer || question.choices[1].answer
+            || question.choices[2].answer || question.choices[3].answer))
+            next(new Error('باید یک جواب را انتخاب کنید.'));
+        
+        return $http.post('/posts/' + o.getId(question.categoryName)+ '/comments', question, {
+            headers: {Authorization: 'Bearer ' + auth.getToken()}
+        }).success(function () {
+            next();
+        });
+    };
+
+    o.removeCategory = function (categoryTitle) {
+        var id;
+        for (var i = 0; i < o.categories.length; i++) {
+            if (o.categories[i].title == categoryTitle) {
                 id = o.categories[i]._id;
                 o.categories.splice(i, 1);
                 break;
             }
         }
-        
-        if(o.categories.length === 0 ){
-            o.categories.push({title: "dummy", type: "dummy", show: false,_id:"januaries"});
+
+        if (o.categories.length === 0) {
+            o.categories.push({title: "dummy", type: "dummy", show: false, _id: "januaries"});
         }
-        
-        return $http.post('/posts/delete/' + id , {
+
+        return $http.post('/posts/delete/' + id, {
             headers: {Authorization: 'Bearer ' + auth.getToken()}
         }).success(function (data) {
             console.log("category was removed.");
@@ -72,8 +99,7 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
         if (token) {
             var payload = JSON.parse($window.atob(token.split('.')[1]));
 
-            var temp = payload.exp > Date.now() / 1000;
-            return temp;
+            return payload.exp > Date.now() / 1000;
         } else {
             return false;
         }
@@ -129,7 +155,12 @@ app.config([
             .state('question', {
                 url: '/question',
                 templateUrl: '/question.html',
-                controller: 'QuestionCtrl'
+                controller: 'QuestionCtrl',
+                resolve: {
+                    postPromise: ['categories', function (categories) {
+                        return categories.getAll();
+                    }]
+                }
             });
 
         $stateProvider
@@ -174,7 +205,31 @@ app.controller('ProfileCtrl',
 
         }]);
 
-function DialogController($scope, $mdDialog) {
+function DialogController($scope, $mdDialog, categories) {
+
+    $scope.categories = categories.categories;
+
+    $scope.newQuestion = {
+        categoryName: '',
+        body: '',
+        choices: [
+            {title: '', answer: false},
+            {title: '', answer: false},
+            {title: '', answer: false},
+            {title: '', answer: false}
+        ]
+    };
+
+    $scope.setAnswer = function (choiceNumber) {
+        for (var i = 0; i < 4; i++) {
+            if (i === choiceNumber)
+                continue;
+            $scope.newQuestion.choices[i].answer = false;
+            console.log(choiceNumber);
+        }
+        console.log($scope.newQuestion.choices);
+    };
+
     $scope.hide = function () {
         $mdDialog.hide();
     };
@@ -184,7 +239,13 @@ function DialogController($scope, $mdDialog) {
     };
 
     $scope.answer = function (answer) {
-        $mdDialog.hide(answer);
+        categories.saveNewQuestion($scope.newQuestion,function (err) {
+            if(err) {
+                $scope.errMessage = err.message;
+                return;
+            }
+            $mdDialog.hide(answer);
+        });
     };
 }
 
@@ -192,7 +253,6 @@ app.controller('QuestionCtrl',
     ['$scope', 'auth', '$mdDialog', '$mdMedia',
         function ($scope, auth, $mdDialog, $mdMedia) {
             $scope.showAdvanced = function (ev) {
-                console.log('sinai is here.');
                 var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
 
                 $mdDialog.show({
@@ -213,8 +273,8 @@ app.controller('QuestionCtrl',
         }]);
 
 app.controller('CategoryCtrl',
-    ['$scope', 'auth','categories',
-        function ($scope, auth,categories) {
+    ['$scope', 'auth', 'categories',
+        function ($scope, auth, categories) {
             $scope.categories = categories.categories;
 
             $scope.currentType = "";
@@ -227,9 +287,9 @@ app.controller('CategoryCtrl',
             };
 
             $scope.sampleCategory = {
-                title:"sampleCategory",
-                type:"4",
-                show:true
+                title: "sampleCategory",
+                type: "4",
+                show: true
             };
 
             $scope.addCategory = categories.addCategory;
