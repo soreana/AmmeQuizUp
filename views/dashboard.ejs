@@ -1283,7 +1283,7 @@
 
             <md-dialog-content>
                 <div id="dialog" class="window">
-                    {{newQuestion}}
+
                     <h1 ng-show="errMessage">{{errMessage}}</h1>
 
                     <div class="form-group-top">
@@ -1706,9 +1706,16 @@
 
         <h1 class="page_title title color">تقسیم بندی موضوعی</h1>
 
-        <div ng-repeat="category in categories">
-            <h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>
-        </div>
+        <!--<div ng-repeat="category in categories">-->
+            <!--<h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>-->
+        <!--</div>-->
+
+        <!-- Portfolio Items Type Selector -->
+        <ul class="portfolio_selector">
+            <li class="filter active btn" data-filter="all" ng-click="disableFilters()">همه</li>
+            <li class="filter btn" ng-repeat="category in categories">{{category.title}}</li>
+        </ul>
+        <!-- /Portfolio Items Type Selector -->
 
         <div ng-click="filterByType('1')">
             <p>filter</p>
@@ -1731,12 +1738,7 @@
 
     <!-- /Description -->
 
-    <!-- Portfolio Items Type Selector -->
-    <ul class="portfolio_selector">
-        <li class="filter active btn" data-filter="all" ng-click="disableFilters()">همه</li>
-        <li class="filter btn" ng-repeat="category in categories">{{category.title}}</li>
-    </ul>
-    <!-- /Portfolio Items Type Selector -->
+
 
     <!-- Portfolio Items -->
     <ul id="portfolio_grid">

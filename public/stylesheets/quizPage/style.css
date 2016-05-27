@@ -1089,6 +1089,7 @@ a.btn{
 .content > div#portfolio .portfolio_selector li{
 	display: inline-block;
 	margin-right: 10px;
+	margin-bottom: inherit;
 	color:#ffffff;
 	padding: 10px;
 	cursor: pointer;
