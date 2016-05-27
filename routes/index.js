@@ -60,12 +60,12 @@ router.param('comment', function (req, res, next, id) {
 });
 
 /*router.put('/posts/:post/comments/:comment/upvote', auth, function (req, res, next) {
-    req.comment.upvote(function (err, comment) {
-        if (err)
-            next(err);
-        res.json(comment);
-    });
-});*/
+ req.comment.upvote(function (err, comment) {
+ if (err)
+ next(err);
+ res.json(comment);
+ });
+ });*/
 
 router.param('post', function (req, res, next, id) {
     var query = Category.findById(id);
@@ -110,13 +110,29 @@ router.get('/posts/:post', function (req, res) {
     });
 });
 
-/*router.put('/posts/:post/upvote', auth, function (req, res, next) {
-    req.post.upvote(function (err, post) {
+router.post('/posts/delete/:post', function (req, res) {
+    Category.find({_id: req.category._id}, function (err, categories) {
         if (err)
-            next(err);
-        res.json(post);
+            return next(err);
+
+        if (categories.length <= 0)
+            return next(new Error('can\'t find category.'));
+        
+        categories[0].remove(function (err) {
+            if(err)
+                return next(err);
+            console.log("category was removed.");
+        });
     });
-});*/
+});
+
+/*router.put('/posts/:post/upvote', auth, function (req, res, next) {
+ req.post.upvote(function (err, post) {
+ if (err)
+ next(err);
+ res.json(post);
+ });
+ });*/
 
 router.post('/posts/:post/comments', auth, function (req, res, next) {
     var comment = new Comment(req.body);

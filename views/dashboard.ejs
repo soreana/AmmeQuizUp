@@ -1672,7 +1672,7 @@
 
     <div id="sample-category">
         <div ng-repeat="category in categories" >
-            <h2 ng-show="category.show">{{category.name}} -- {{category.type}}</h2>
+            <h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>
         </div>
         <div ng-click="filterByType('1')">
             <p>filter</p>
@@ -1683,7 +1683,7 @@
         </div>
 
 
-        <div ng-click="removeCategory(sampleCategory.name)">
+        <div ng-click="removeCategory(sampleCategory.title)">
             <p>remove</p>
         </div>
     </div>

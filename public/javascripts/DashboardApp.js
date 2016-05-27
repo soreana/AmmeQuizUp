@@ -4,24 +4,53 @@
 
 var app = angular.module('dashboardApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
-app.factory('categories', [function () {
+app.factory('categories', ['$http' , 'auth' ,function ($http,auth) {
     var o = {};
     o.categories = [
-        {name: "numberOne", type: "1", show: true},
-        {name: "numberTwo", type: "2", show: true},
-        {name: "numberThree", type: "3", show: true}
+        {title: "numberOne", type: "1", show: true,_id:"januaries"}
     ];
-
-    o.addCategory = function(category){
-        // todo check category existence
-        o.categories.push(category);
+    
+    o.getAll = function () {
+        return $http.get('/posts').success(function (data) {
+            for(var i=0; i<data.length;i++){
+                data[i].show = true;
+            }
+            angular.copy(data, o.categories);
+        });
     };
 
-    o.removeCategory = function(categoryName){
+    o.addCategory = function (category) {
+        // todo check category existence
+        return $http.post('/posts', category, {
+            headers: {Authorization: 'Bearer ' + auth.getToken()}
+        }).success(function (data) {
+            console.log(data);
+            data.show = true;
+            o.categories.push(data);
+        });
+    };
+
+    o.removeCategory = function(categoryTitle){
+        var id ;
         for(var i=0;i< o.categories.length;i++){
-            if(o.categories[i].name == categoryName)
-                o.categories.splice(i,1);
+            if(o.categories[i].title == categoryTitle) {
+                id = o.categories[i]._id;
+                o.categories.splice(i, 1);
+                break;
+            }
         }
+        
+        if(o.categories.length === 0 ){
+            o.categories.push({title: "dummy", type: "dummy", show: false,_id:"januaries"});
+        }
+        
+        return $http.post('/posts/delete/' + id , {
+            headers: {Authorization: 'Bearer ' + auth.getToken()}
+        }).success(function (data) {
+            console.log("category was removed.");
+        }).error(function (err) {
+            console.log(err);
+        });
     };
 
     return o;
@@ -107,7 +136,12 @@ app.config([
             .state('category', {
                 url: '/category',
                 templateUrl: '/category.html',
-                controller: 'CategoryCtrl'
+                controller: 'CategoryCtrl',
+                resolve: {
+                    postPromise: ['categories', function (categories) {
+                        return categories.getAll();
+                    }]
+                }
             });
 
         $stateProvider
@@ -193,7 +227,7 @@ app.controller('CategoryCtrl',
             };
 
             $scope.sampleCategory = {
-                name:"sampleCategory",
+                title:"sampleCategory",
                 type:"4",
                 show:true
             };
