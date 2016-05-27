@@ -110,6 +110,8 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
             var token = auth.getToken();
             var payload = JSON.parse($window.atob(token.split('.')[1]));
 
+            console.log(payload);
+
             return payload.username;
         }
     };
@@ -128,6 +130,7 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
 
     auth.logout = function () {
         $window.localStorage.removeItem('flapper-news-token');
+        $window.location.href = '/';
     };
 
     return auth;
@@ -202,6 +205,10 @@ app.controller('QuizHomeCtrl',
 app.controller('ProfileCtrl',
     ['$scope', 'auth',
         function ($scope, auth) {
+            $scope.user = auth.currentUser();
+            $scope.getRandomNumber  = function(){
+
+            };
 
         }]);
 
@@ -279,6 +286,17 @@ app.controller('CategoryCtrl',
 
             $scope.currentType = "";
 
+            $scope.disableFilters = function(){
+              for(var i=0; i< $scope.categories.length ; i++){
+                  $scope.categories[i].show = true;
+              }
+            };
+
+            $scope.getAllTypes = function(){
+                var types = [];
+
+            };
+
             $scope.filterByType = function (typeName) {
                 $scope.currentType = typeName;
                 for (var i = 0; i < $scope.categories.length; i++) {
@@ -310,10 +328,12 @@ app.controller('ContactCtrl',
         }]);
 
 app.controller('NavCtrl',
-    ['$scope', '$state', function ($scope, $state) {
+    ['$scope', '$state','auth', function ($scope, $state,auth) {
         $scope.gotoState = function (state) {
             console.log(state);
             $state.go(state);
-        }
+        };
+
+        $scope.logout = auth.logout;
     }]);
 
