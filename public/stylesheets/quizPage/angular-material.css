@@ -1593,7 +1593,7 @@ md-dialog {
     -ms-flex-direction: column;
     flex-direction: column; }
 md-dialog.md-transition-in {
-    width: inherit;
+    width: 40%;
     opacity: 1;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     -webkit-transform: translate(0, 0) scale(1);
