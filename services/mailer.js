@@ -19,7 +19,8 @@ var transporter = nodemailer.createTransport('smtps://niceguyofsotflab%40gmail.c
 var mailOptions = {
     from: '"Parkoosh Team " <niceguyofsotflab@gmail.com>', // sender address
 };
-
+//////
+/////
 var helper = {
     getActivationLink: function (key) {
         return 'http://parkoosh.ir/activation/' + key;
@@ -87,6 +88,6 @@ module.exports = {
 };
 /**
  * sample codes from stack oveflow
- * 
+ *
  *
  */
