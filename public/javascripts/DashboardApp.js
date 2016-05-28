@@ -305,7 +305,7 @@ app.controller('CategoryCtrl',
             };
 
             $scope.sampleCategory = {
-                title: "sampleCategory",
+                title: "نام بخش جدید",
                 type: "4",
                 show: true
             };
