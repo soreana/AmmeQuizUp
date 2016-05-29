@@ -1287,37 +1287,46 @@
 
                     <div class="form-group-top" style="margin-bottom: 5%">
                         <label class="filter-col" for="pref-search">متن سوال</label>
-                        <input type="text" class="form-control input-sm" style="margin-right: 7%" id="pref-search" ng-model="newQuestion.body"
+                        <input type="text" class="form-control input-sm" style="margin-right: 7%" id="pref-search"
+                               ng-model="newQuestion.body"
                                placeholder="متن سوال را وارد کنید...">
                     </div>
 
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[0].answer" ng-click="setAnswer(0)"> گزینه ۱  </md-checkbox>
-                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[0].title"
+                            <md-checkbox ng-model="newQuestion.choices[0].answer" ng-click="setAnswer(0)"> گزینه ۱
+                            </md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search"
+                                   ng-model="newQuestion.choices[0].title"
                                    placeholder="گزینه اول ">
                         </div>
                     </div>
 
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[1].answer" ng-click="setAnswer(1)">  گزینه ۲ </md-checkbox>
-                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[1].title"
+                            <md-checkbox ng-model="newQuestion.choices[1].answer" ng-click="setAnswer(1)"> گزینه ۲
+                            </md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search"
+                                   ng-model="newQuestion.choices[1].title"
                                    placeholder="گزینه دوم ">
                         </div>
                     </div>
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[2].answer" ng-click="setAnswer(2)">  گزینه ۳</md-checkbox>
-                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[2].title"
+                            <md-checkbox ng-model="newQuestion.choices[2].answer" ng-click="setAnswer(2)"> گزینه ۳
+                            </md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search"
+                                   ng-model="newQuestion.choices[2].title"
                                    placeholder="گزینه سوم ">
                         </div>
                     </div>
 
                     <div class="radio">
                         <div class="form-group-top">
-                            <md-checkbox ng-model="newQuestion.choices[3].answer" ng-click="setAnswer(3)"> گزینه ۴</md-checkbox>
-                            <input type="text" class="form-control input-sm" id="pref-search" ng-model="newQuestion.choices[3].title"
+                            <md-checkbox ng-model="newQuestion.choices[3].answer" ng-click="setAnswer(3)"> گزینه ۴
+                            </md-checkbox>
+                            <input type="text" class="form-control input-sm" id="pref-search"
+                                   ng-model="newQuestion.choices[3].title"
                                    placeholder="گزینه چهارم">
                         </div>
                     </div>
@@ -1353,7 +1362,6 @@
         </form>
     </md-dialog>
 </script>
-
 <script type="text/ng-template" id="/profile.html">
     <div style="padding: 2%">
         <h1 class="title color">پروفایل من</h1>
@@ -1479,7 +1487,7 @@
             <div class="box who_i_am" src="public/"+{{getran}}>
                 <div class="title">
                     <div class="text">مشخصات فردی</div>
-                    <div class="icon"><i class="fa fa-user"></i></div>
+                    <div class="icon" style="float: right;margin-right: 0%"><i class="fa fa-user"></i></div>
 
                     <div class="clear"></div>
                 </div>
@@ -1496,36 +1504,36 @@
                 <div class="personal_details">
                     <div class="item title">
                         <div class="text">John Doe</div>
-                        <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
+                        <div class="icon" style="float: right;margin-right: -23%"><i class="fa fa-user"></i><span>نام</span></div>
 
                         <div class="clear"></div>
                     </div>
                     <!--<div class="item title">-->
-                        <!--<div class="text">January 17, 1992</div>-->
-                        <!--<div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>-->
+                    <!--<div class="text">January 17, 1992</div>-->
+                    <!--<div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>-->
 
-                        <!--<div class="clear"></div>-->
+                    <!--<div class="clear"></div>-->
                     <!--</div>-->
                     <div class="item title">
                         <div class="text">New York City</div>
-                        <div class="icon"><i class="fa fa-map-marker"></i><span>استان</span></div>
+                        <div class="icon" style="float: right;margin-right: -18%"><i class="fa fa-map-marker"></i><span>استان</span></div>
 
                         <div class="clear"></div>
                     </div>
                     <div class="item title">
                         <div class="text">+ 123-456-7890</div>
-                        <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
+                        <div class="icon" style="float: right;margin-right: -7%"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
 
                         <div class="clear"></div>
                     </div>
                     <div class="item title">
-                        <div class="text">john@site.com</div>
-                        <div class="icon"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
+                        <div class="text">niceguyofsotflab@gmail.com</div>
+                        <div class="icon" style="float: right;margin-right: -18%"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
 
                         <div class="clear"></div>
                     </div>
                     <div class="item title">
-                        <div class="icon"><i class="fa fa-external-link"></i><span>Website</span></div>
+                        <div class="icon" style="float: right;margin-right: -10%"><i class="fa fa-external-link"></i><span>Website</span></div>
                         <div class="text"><a href="#">www.website.com</a></div>
                         <div class="clear"></div>
                     </div>
@@ -1588,44 +1596,43 @@
 
         <!-- Awards -->
         <!--<div class="box awards">-->
-            <!--<div class="title">-->
-                <!--<div class="icon"><i class="fa fa-trophy"></i></div>-->
-                <!--<div class="text">کوییز های من</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="awards">-->
-                <!--<div class="award">-->
-                    <!--<div class="date">2014</div>-->
-                    <!--<div class="body">-->
-                        <!--<div class="award_title">1rst Award &bull; Name of Institute</div>-->
-                        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
-                    <!--</div>-->
-                    <!--<div class="clear"></div>-->
-                <!--</div>-->
-                <!--<div class="award">-->
-                    <!--<div class="date">2013</div>-->
-                    <!--<div class="body">-->
-                        <!--<div class="award_title">2nd Award &bull; Name of Institute</div>-->
-                        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
-                    <!--</div>-->
-                    <!--<div class="clear"></div>-->
-                <!--</div>-->
-                <!--<div class="award">-->
-                    <!--<div class="date">2012</div>-->
-                    <!--<div class="body">-->
-                        <!--<div class="award_title">3rd Award &bull; Name of Institute</div>-->
-                        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
-                    <!--</div>-->
-                    <!--<div class="clear"></div>-->
-                <!--</div>-->
-            <!--</div>-->
+        <!--<div class="title">-->
+        <!--<div class="icon"><i class="fa fa-trophy"></i></div>-->
+        <!--<div class="text">کوییز های من</div>-->
+        <!--<div class="clear"></div>-->
+        <!--</div>-->
+        <!--<div class="awards">-->
+        <!--<div class="award">-->
+        <!--<div class="date">2014</div>-->
+        <!--<div class="body">-->
+        <!--<div class="award_title">1rst Award &bull; Name of Institute</div>-->
+        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+        <!--</div>-->
+        <!--<div class="clear"></div>-->
+        <!--</div>-->
+        <!--<div class="award">-->
+        <!--<div class="date">2013</div>-->
+        <!--<div class="body">-->
+        <!--<div class="award_title">2nd Award &bull; Name of Institute</div>-->
+        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+        <!--</div>-->
+        <!--<div class="clear"></div>-->
+        <!--</div>-->
+        <!--<div class="award">-->
+        <!--<div class="date">2012</div>-->
+        <!--<div class="body">-->
+        <!--<div class="award_title">3rd Award &bull; Name of Institute</div>-->
+        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+        <!--</div>-->
+        <!--<div class="clear"></div>-->
+        <!--</div>-->
+        <!--</div>-->
         <!--</div>-->
         <!-- /Awards -->
 
         <div class="clear"></div>
     </div>
 </script>
-
 <script type="text/ng-template" id="/question.html">
     <div style="padding: 2%">
         <h1 class="title color"></h1>
@@ -1715,7 +1722,7 @@
         <h1 class="page_title title color">تقسیم بندی موضوعی</h1>
 
         <!--<div ng-repeat="category in categories">-->
-            <!--<h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>-->
+        <!--<h2 ng-show="category.show">{{category.title}} -- {{category.type}} -- {{category._id}}</h2>-->
         <!--</div>-->
 
         <!-- Portfolio Items Type Selector -->
@@ -1788,7 +1795,6 @@
     <!-- Description -->
 
     <!-- /Description -->
-
 
 
     <!-- Portfolio Items -->
@@ -2529,7 +2535,7 @@
 
             <div class="contact_form">
                 <input type="text" value="" placeholder="نام" class="name" style="width: inherit"/>
-                <input type="email" value="" placeholder="پست الکترونیک" class="email"style="width: inherit"/>
+                <input type="email" value="" placeholder="پست الکترونیک" class="email" style="width: inherit"/>
                 <textarea class="message" placeholder="پیام"></textarea>
                 <input type="button" value="ارسال پیام" class="btn send_message_btn" name="submit"/>
                 <span class="message"></span>
@@ -2539,18 +2545,18 @@
 
         <!-- Social Buttons -->
         <!--<div class="social_btns" ng-controller="NavCtrl">-->
-            <!--<a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>-->
-            <!--<a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>-->
-            <!--<a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>-->
-            <!--<a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>-->
-            <!--<a href="#"><i class="fa fa-github"></i><span>Github</span></a>-->
-            <!--<a href="#"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>-->
-            <!--<a href="#"><i class="fa fa-flickr"></i><span>Flickr</span></a>-->
-            <!--<a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>-->
-            <!--<a href="#"><i class="fa fa-vk"></i><span>VK</span></a>-->
-            <!--<a href="#"><i class="fa fa-skype"></i><span>Skype</span></a>-->
-            <!--<a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>-->
-            <!--<a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>-->
+        <!--<a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>-->
+        <!--<a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>-->
+        <!--<a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>-->
+        <!--<a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>-->
+        <!--<a href="#"><i class="fa fa-github"></i><span>Github</span></a>-->
+        <!--<a href="#"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>-->
+        <!--<a href="#"><i class="fa fa-flickr"></i><span>Flickr</span></a>-->
+        <!--<a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>-->
+        <!--<a href="#"><i class="fa fa-vk"></i><span>VK</span></a>-->
+        <!--<a href="#"><i class="fa fa-skype"></i><span>Skype</span></a>-->
+        <!--<a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>-->
+        <!--<a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>-->
         <!--</div>-->
         <!-- /Social Buttons -->
     </div>
