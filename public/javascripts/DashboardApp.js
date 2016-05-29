@@ -21,13 +21,21 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
 
     o.addCategory = function (category) {
         // todo check category existence
-        return $http.post('/posts', category, {
-            headers: {Authorization: 'Bearer ' + auth.getToken()}
-        }).success(function (data) {
-            console.log(data);
-            data.show = true;
-            o.categories.push(data);
-        });
+        for(var i=0;i<o.categories.length;i++)
+            if(o.categories[i].title === category.title){
+                console.log('category tekrari');
+                window.alert("این بخش قبلا ثبت شده است.");
+                var notNewCategory=1;
+            }
+        if(!notNewCategory){
+            return $http.post('/posts', category, {
+                headers: {Authorization: 'Bearer ' + auth.getToken()}
+            }).success(function (data) {
+                console.log(data);
+                data.show = true;
+                o.categories.push(data);
+            });
+        }
     };
     
     o.getId = function (categoryName) {
@@ -207,7 +215,7 @@ app.controller('ProfileCtrl',
         function ($scope, auth) {
             $scope.user = auth.currentUser();
             $scope.getRandomNumber  = function(){
-
+                Math.floor((Math.random() * 20) + 1);
             };
 
         }]);

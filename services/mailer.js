@@ -3,6 +3,14 @@
  * Created by sinaikashipazha on 4/11/16.
  */
 
+
+/**
+ * Created by soj on 5/28/16. 8:14 and dead for a little hope
+ * i witre the cuntioncs and libarary i used to fix this
+ * 1. https://nodejs.org/api/fs.html
+ */
+
+
 var nodemailer = require('nodemailer');
 
 //noinspection SpellCheckingInspection
@@ -17,7 +25,7 @@ var helper = {
         return 'http://parkoosh.ir/activation/' + key;
     },
     getChallengeRout: function (route) {
-        return 'http://parkoosh.ir/' + route; 
+        return 'http://parkoosh.ir/' + route;
     },
     sendMail : function (options) {
         //noinspection JSUnresolvedFunction
@@ -38,17 +46,22 @@ var helper = {
     }
 };
 
+        //  TODO here  to
 module.exports = {
     sendActivationCodeTo: function (emailAddress, key) {
-        mailOptions.to = emailAddress;
-        mailOptions.subject = 'فعال کردن حساب کاربری'; // Subject line 
-        mailOptions.text = 'با کلیک بر روی لینک زیر حساب کاربری خود را فعال کنید:'; // plaintext body 
-        mailOptions.html = '<h1>' + mailOptions.text + '</h1>';// html body 
+        
 
+
+        
+        mailOptions.to = emailAddress;
+        mailOptions.subject = 'فعال کردن حساب کاربری'; // Subject line
+        mailOptions.text = 'با کلیک بر روی لینک زیر حساب کاربری خود را فعال کنید:'; // plaintext body
+        mailOptions.html = '<h1>' + "به عمو سلام کن" + '</h1>';// html body 
+                    //fs.readFileSync();
         // TODO get template not making template
         mailOptions.text += helper.getActivationLink(key);
         mailOptions.html += '<p>' + helper.getActivationLink(key) + '</p>';
-        
+
         helper.sendMail(mailOptions);
     },
     sendChallengeInvitationTo: function (emailAddress, route) {
@@ -59,7 +72,7 @@ module.exports = {
 
         mailOptions.text += helper.getChallengeRout(route);
         mailOptions.html += '<p>'+ helper.getChallengeRout(route)+'</p>';
-        
+
         helper.sendMail(mailOptions);
     },
     sendChallengeResultTo: function (user1, user2) {
@@ -70,4 +83,10 @@ module.exports = {
 
         helper.sendMail(mailOptions);
     }
+    //// here
 };
+/**
+ * sample codes from stack oveflow
+ *
+ *
+ */

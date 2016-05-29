@@ -115,7 +115,7 @@
 
             <!-- Home Page -->
             <div id="home" class="pt-page-current">
-                <ui-view></ui-view>
+                <!--<ui-view></ui-view>-->
 
                 <!--&lt;!&ndash; Slider &ndash;&gt;-->
                 <!--<div class="main_slider cycle-slideshow">-->
@@ -1283,10 +1283,7 @@
 
             <md-dialog-content>
                 <div id="dialog" class="window">
-<<<<<<< HEAD
 
-=======
->>>>>>> edb18d1a51775e9a01506e994c8a3a89604b7fb8
                     <h1 ng-show="errMessage">{{errMessage}}</h1>
 
                     <div class="form-group-top" style="margin-bottom: 5%">
@@ -1483,7 +1480,7 @@
         <div class="box who_i_am" src="public/"+{{getran}}>
             <div class="title">
                 <div class="text">مشخصات فردی</div>
-                <div class="icon"><i class="fa fa-user"></i></div>
+                <div class="icon" style="float: right;margin-right: 0%"><i class="fa fa-user"></i></div>
 
                 <div class="clear"></div>
             </div>
@@ -1500,7 +1497,7 @@
             <div class="personal_details">
                 <div class="item title">
                     <div class="text">John Doe</div>
-                    <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
+                    <div class="icon" style="float: right;margin-right: -23%"><i class="fa fa-user"></i><span>نام</span></div>
 
                     <div class="clear"></div>
                 </div>
@@ -1512,24 +1509,24 @@
                 <!--</div>-->
                 <div class="item title">
                     <div class="text">New York City</div>
-                    <div class="icon"><i class="fa fa-map-marker"></i><span>استان</span></div>
+                    <div class="icon" style="float: right;margin-right: -18%"><i class="fa fa-map-marker"></i><span>استان</span></div>
 
                     <div class="clear"></div>
                 </div>
                 <div class="item title">
                     <div class="text">+ 123-456-7890</div>
-                    <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
+                    <div class="icon" style="float: right;margin-right: -7%"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
 
                     <div class="clear"></div>
                 </div>
                 <div class="item title">
                     <div class="text">niceguyofsotflab@gmail.com</div>
-                    <div class="icon"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
+                    <div class="icon" style="float: right;margin-right: -18%"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
 
                     <div class="clear"></div>
                 </div>
                 <div class="item title">
-                    <div class="icon"><i class="fa fa-external-link"></i><span>Website</span></div>
+                    <div class="icon" style="float: right;margin-right: -10%"><i class="fa fa-external-link"></i><span>Website</span></div>
                     <div class="text"><a href="#">www.website.com</a></div>
                     <div class="clear"></div>
                 </div>
@@ -1732,7 +1729,7 @@
 
         <form ng-submit="addCategory(sampleCategory)">
             <input ng-model="sampleCategory.title"/>
-            <button>افزودن دسته بندی</button>
+            <button type="button" class="btn btn-success">افزودن دسته بندی</button>
         </form>
 
 
@@ -1740,7 +1737,7 @@
             <select id="pref-orderby" class="form-control">
                 <option ng-repeat="category in categories">{{category.title}}</option>
             </select>
-            <button>حذف دسته</button>
+            <button type="button" class="btn btn-success">حذف دسته</button>
         </form>
 
 
@@ -2499,20 +2496,20 @@
     <!-- /Contact Form -->
 
     <!-- Social Buttons -->
-    <div class="social_btns" ng-controller="NavCtrl">
-        <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-        <a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>
-        <a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>
-        <a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>
-        <a href="#"><i class="fa fa-github"></i><span>Github</span></a>
-        <a href="#"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>
-        <a href="#"><i class="fa fa-flickr"></i><span>Flickr</span></a>
-        <a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>
-        <a href="#"><i class="fa fa-vk"></i><span>VK</span></a>
-        <a href="#"><i class="fa fa-skype"></i><span>Skype</span></a>
-        <a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>
-        <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>
-    </div>
+    <!--<div class="social_btns" ng-controller="NavCtrl">-->
+        <!--<a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>-->
+        <!--<a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>-->
+        <!--<a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>-->
+        <!--<a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>-->
+        <!--<a href="#"><i class="fa fa-github"></i><span>Github</span></a>-->
+        <!--<a href="#"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>-->
+        <!--<a href="#"><i class="fa fa-flickr"></i><span>Flickr</span></a>-->
+        <!--<a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>-->
+        <!--<a href="#"><i class="fa fa-vk"></i><span>VK</span></a>-->
+        <!--<a href="#"><i class="fa fa-skype"></i><span>Skype</span></a>-->
+        <!--<a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>-->
+        <!--<a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>-->
+    <!--</div>-->
     <!-- /Social Buttons -->
 
 </script>
