@@ -1242,7 +1242,6 @@
 
 <script type="text/ng-template" id="/quizHome.html">
 
-    <!-- Slider -->
     <div class="main_slider cycle-slideshow">
         <div class="overlay">
             <img src="/images/quizPage/quizup-main.jpg" alt="img"/>
@@ -1356,359 +1355,362 @@
 </script>
 
 <script type="text/ng-template" id="/profile.html">
+    <div style="padding: 2%">
+        <h1 class="title color">پروفایل من</h1>
+        <div class="right_side">
 
-    <h1 class="title color">پروفایل من</h1>
-    <div class="right_side">
+            <!-- About Pictures -->
+            <div class="box pictures cycle-slideshow">
+                <img src="/images/quizPage/about_1.jpg" class="first" alt="img"/>
+                <img src="/images/quizPage/about_2.jpg" alt="img"/>
+                <img src="/images/quizPage/about_3.jpg" alt="img"/>
+            </div>
+            <!-- /About Pictures -->
 
-        <!-- About Pictures -->
-        <div class="box pictures cycle-slideshow">
-            <img src="/images/quizPage/about_1.jpg" class="first" alt="img"/>
-            <img src="/images/quizPage/about_2.jpg" alt="img"/>
-            <img src="/images/quizPage/about_3.jpg" alt="img"/>
-        </div>
-        <!-- /About Pictures -->
-
-        <!-- My Services -->
-        <!--
-        <div class="box my_services">
-        <div class="title">
-        <div class="icon"><i class="fa fa-wrench"></i></div>
-        <div class="text">MY SERVICES</div>
-        <div class="clear"></div>
-        </div>
-        <div class="accordion">
-        <div class="item">
-        <div class="item_title">
-        <div class="item_btn">
-        <span class="text">Web Design</span>
-        <span class="arrow"><i class="fa fa-plus-circle"></i></span>
-
-        <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-        </div>
-        <div class="item_text">
-        $$$$$$$$$$$$
-        </div>
-        <div class="clear"></div>
-        </div>
-        <div class="item">
-        <div class="item_title">
-        <div class="item_btn">
-        <span class="text">Web Development</span>
-        <span class="arrow"><i class="fa fa-plus-circle"></i></span>
-
-        <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-        </div>
-        <div class="item_text">
-        ++++
-        <br/><br/>
-        &#45;&#45;&#45;&#45;
-        </div>
-        <div class="clear"></div>
-        </div>
-        <div class="item">
-        <div class="item_title">
-        <div class="item_btn">
-        <span class="text">Graphic Design</span>
-        <span class="arrow"><i class="fa fa-plus-circle"></i></span>
-
-        <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-        </div>
-        <div class="item_text">
-        ****************
-        </div>
-        <div class="clear"></div>
-        </div>
-        </div>
-        </div>
-        -->
-        <!-- /My Services -->
-
-        <!-- Testimonials -->
-        <!--
-        <div class="box testimonials">
-        <div class="title">
-        <div class="icon"><i class="fa fa-users"></i></div>
-        <div class="text">TESTIMONIALS</div>
-        <div class="clear"></div>
-        </div>
-        <div class="testimonials_btns">
-        <div class="fa fa-caret-left left_btn"></div>
-        <div class="fa fa-caret-right right_btn"></div>
-        <div class="clear"></div>
-        </div>
-        <div class="testimonials cycle-slideshow" data-cycle-slides="div.testimonial">
-        <div class="testimonial current">
-        <div class="text">
-        /////////////
-        </div>
-        <div class="client">
-        &dash; A Client
-        </div>
-        </div>
-        <div class="testimonial">
-        <div class="text">
-        (((((((((((((
-        </div>
-        <div class="client">
-        &dash; A Client
-        </div>
-        </div>
-        <div class="testimonial">
-        <div class="text">
-        )))))))))))))
-        </div>
-        <div class="client">
-        &dash; A Client
-        </div>
-        </div>
-        </div>
-        </div>
-        -->
-        <!-- /Testimonials -->
-
-    </div>
-    <!-- Left Side -->
-    <div class="right_side">
-
-        <!-- Who i am -->
-        <div class="box who_i_am" src="public/"+{{getran}}>
+            <!-- My Services -->
+            <!--
+            <div class="box my_services">
             <div class="title">
-                <div class="text">مشخصات فردی</div>
-                <div class="icon"><i class="fa fa-user"></i></div>
-
-                <div class="clear"></div>
+            <div class="icon"><i class="fa fa-wrench"></i></div>
+            <div class="text">MY SERVICES</div>
+            <div class="clear"></div>
             </div>
+            <div class="accordion">
+            <div class="item">
+            <div class="item_title">
+            <div class="item_btn">
+            <span class="text">Web Design</span>
+            <span class="arrow"><i class="fa fa-plus-circle"></i></span>
 
-            <!-- Description -->
+            <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <div class="item_text">
+            $$$$$$$$$$$$
+            </div>
+            <div class="clear"></div>
+            </div>
+            <div class="item">
+            <div class="item_title">
+            <div class="item_btn">
+            <span class="text">Web Development</span>
+            <span class="arrow"><i class="fa fa-plus-circle"></i></span>
+
+            <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <div class="item_text">
+            ++++
+            <br/><br/>
+            &#45;&#45;&#45;&#45;
+            </div>
+            <div class="clear"></div>
+            </div>
+            <div class="item">
+            <div class="item_title">
+            <div class="item_btn">
+            <span class="text">Graphic Design</span>
+            <span class="arrow"><i class="fa fa-plus-circle"></i></span>
+
+            <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <div class="item_text">
+            ****************
+            </div>
+            <div class="clear"></div>
+            </div>
+            </div>
+            </div>
+            -->
+            <!-- /My Services -->
+
+            <!-- Testimonials -->
+            <!--
+            <div class="box testimonials">
+            <div class="title">
+            <div class="icon"><i class="fa fa-users"></i></div>
+            <div class="text">TESTIMONIALS</div>
+            <div class="clear"></div>
+            </div>
+            <div class="testimonials_btns">
+            <div class="fa fa-caret-left left_btn"></div>
+            <div class="fa fa-caret-right right_btn"></div>
+            <div class="clear"></div>
+            </div>
+            <div class="testimonials cycle-slideshow" data-cycle-slides="div.testimonial">
+            <div class="testimonial current">
             <div class="text">
-                My name is <strong>John Doe</strong> and I'm a <strong>Web Developer,
-                    UI Designer and Graphic &amp; Web Designer</strong>
-                located in <strong>New York City, United States</strong>.
+            /////////////
             </div>
-            <!-- /Description -->
+            <div class="client">
+            &dash; A Client
+            </div>
+            </div>
+            <div class="testimonial">
+            <div class="text">
+            (((((((((((((
+            </div>
+            <div class="client">
+            &dash; A Client
+            </div>
+            </div>
+            <div class="testimonial">
+            <div class="text">
+            )))))))))))))
+            </div>
+            <div class="client">
+            &dash; A Client
+            </div>
+            </div>
+            </div>
+            </div>
+            -->
+            <!-- /Testimonials -->
 
-            <!-- Personal Details -->
-            <div class="personal_details">
-                <div class="item title">
-                    <div class="text">John Doe</div>
-                    <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
+        </div>
+        <!-- Left Side -->
+        <div class="right_side">
+
+            <!-- Who i am -->
+            <div class="box who_i_am" src="public/"+{{getran}}>
+                <div class="title">
+                    <div class="text">مشخصات فردی</div>
+                    <div class="icon"><i class="fa fa-user"></i></div>
 
                     <div class="clear"></div>
                 </div>
-                <!--<div class="item title">-->
-                    <!--<div class="text">January 17, 1992</div>-->
-                    <!--<div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>-->
 
+                <!-- Description -->
+                <div class="text">
+                    My name is <strong>John Doe</strong> and I'm a <strong>Web Developer,
+                        UI Designer and Graphic &amp; Web Designer</strong>
+                    located in <strong>New York City, United States</strong>.
+                </div>
+                <!-- /Description -->
+
+                <!-- Personal Details -->
+                <div class="personal_details">
+                    <div class="item title">
+                        <div class="text">John Doe</div>
+                        <div class="icon"><i class="fa fa-user"></i><span>نام</span></div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <!--<div class="item title">-->
+                        <!--<div class="text">January 17, 1992</div>-->
+                        <!--<div class="icon"><i class="fa fa-calendar"></i><span>تاریخ تولد</span></div>-->
+
+                        <!--<div class="clear"></div>-->
+                    <!--</div>-->
+                    <div class="item title">
+                        <div class="text">New York City</div>
+                        <div class="icon"><i class="fa fa-map-marker"></i><span>استان</span></div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item title">
+                        <div class="text">+ 123-456-7890</div>
+                        <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item title">
+                        <div class="text">john@site.com</div>
+                        <div class="icon"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item title">
+                        <div class="icon"><i class="fa fa-external-link"></i><span>Website</span></div>
+                        <div class="text"><a href="#">www.website.com</a></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <!-- /Personal Details -->
+
+            </div>
+            <!-- /Who i am -->
+
+            <!-- What i do -->
+            <!--
+            <div class="box what_i_do">
+            <div class="title">
+            <div class="icon"><i class="fa fa-certificate"></i></div>
+            <div class="text">WHAT I DO</div>
+            <div class="clear"></div>
+            </div>
+            <div class="text">
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Praesent condimentum sed elit
+            vitae tristique. Aliquam erat volutpat. Nunc sit
+            amet cursus libero. In fringilla egestas ornare.
+            Vivamus enim tortor, ultricies nec lectus eget,
+            interdum elementum elit. Ut laoreet neque sit
+            amet velit auctor tempus. In ac lectus felis.
+            </div>
+            </div>
+            -->
+            <!-- /What i do -->
+
+            <!-- Tools i use -->
+            <!--
+            <div class="box tools_i_use">
+            <div class="title">
+            <div class="icon"><i class="fa fa-wrench"></i></div>
+            <div class="text">TOOLS I USE</div>
+            <div class="clear"></div>
+            </div>
+            <div class="tools">
+            <a href="#" class="tool btn">Photoshop</a>
+            <a href="#" class="tool btn">jQuery</a>
+            <a href="#" class="tool btn">Wordpress</a>
+            <a href="#" class="tool btn">After Effects</a>
+            <a href="#" class="tool btn">Joomla</a>
+            <a href="#" class="tool btn">Bootstrap</a>
+            <a href="#" class="tool btn">Drupal</a>
+            </div>
+            </div>
+            -->
+            <!-- /Tools i use -->
+
+        </div>
+        <!-- /Left Side -->
+
+        <!-- Right Side -->
+
+        <!-- /Right Side -->
+
+        <div class="clear"></div>
+
+        <!-- Awards -->
+        <!--<div class="box awards">-->
+            <!--<div class="title">-->
+                <!--<div class="icon"><i class="fa fa-trophy"></i></div>-->
+                <!--<div class="text">کوییز های من</div>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+            <!--<div class="awards">-->
+                <!--<div class="award">-->
+                    <!--<div class="date">2014</div>-->
+                    <!--<div class="body">-->
+                        <!--<div class="award_title">1rst Award &bull; Name of Institute</div>-->
+                        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+                    <!--</div>-->
                     <!--<div class="clear"></div>-->
                 <!--</div>-->
-                <div class="item title">
-                    <div class="text">New York City</div>
-                    <div class="icon"><i class="fa fa-map-marker"></i><span>استان</span></div>
+                <!--<div class="award">-->
+                    <!--<div class="date">2013</div>-->
+                    <!--<div class="body">-->
+                        <!--<div class="award_title">2nd Award &bull; Name of Institute</div>-->
+                        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+                    <!--</div>-->
+                    <!--<div class="clear"></div>-->
+                <!--</div>-->
+                <!--<div class="award">-->
+                    <!--<div class="date">2012</div>-->
+                    <!--<div class="body">-->
+                        <!--<div class="award_title">3rd Award &bull; Name of Institute</div>-->
+                        <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
+                    <!--</div>-->
+                    <!--<div class="clear"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!-- /Awards -->
 
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="text">+ 123-456-7890</div>
-                    <div class="icon"><i class="fa fa-mobile"></i><span>شماره تماس</span></div>
-
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="text">john@site.com</div>
-                    <div class="icon"><i class="fa fa-envelope"></i><span>ایمیل</span></div>
-
-                    <div class="clear"></div>
-                </div>
-                <div class="item title">
-                    <div class="icon"><i class="fa fa-external-link"></i><span>Website</span></div>
-                    <div class="text"><a href="#">www.website.com</a></div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <!-- /Personal Details -->
-
-        </div>
-        <!-- /Who i am -->
-
-        <!-- What i do -->
-        <!--
-        <div class="box what_i_do">
-        <div class="title">
-        <div class="icon"><i class="fa fa-certificate"></i></div>
-        <div class="text">WHAT I DO</div>
         <div class="clear"></div>
-        </div>
-        <div class="text">
-        Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Praesent condimentum sed elit
-        vitae tristique. Aliquam erat volutpat. Nunc sit
-        amet cursus libero. In fringilla egestas ornare.
-        Vivamus enim tortor, ultricies nec lectus eget,
-        interdum elementum elit. Ut laoreet neque sit
-        amet velit auctor tempus. In ac lectus felis.
-        </div>
-        </div>
-        -->
-        <!-- /What i do -->
-
-        <!-- Tools i use -->
-        <!--
-        <div class="box tools_i_use">
-        <div class="title">
-        <div class="icon"><i class="fa fa-wrench"></i></div>
-        <div class="text">TOOLS I USE</div>
-        <div class="clear"></div>
-        </div>
-        <div class="tools">
-        <a href="#" class="tool btn">Photoshop</a>
-        <a href="#" class="tool btn">jQuery</a>
-        <a href="#" class="tool btn">Wordpress</a>
-        <a href="#" class="tool btn">After Effects</a>
-        <a href="#" class="tool btn">Joomla</a>
-        <a href="#" class="tool btn">Bootstrap</a>
-        <a href="#" class="tool btn">Drupal</a>
-        </div>
-        </div>
-        -->
-        <!-- /Tools i use -->
-
     </div>
-    <!-- /Left Side -->
-
-    <!-- Right Side -->
-
-    <!-- /Right Side -->
-
-    <div class="clear"></div>
-
-    <!-- Awards -->
-    <!--<div class="box awards">-->
-        <!--<div class="title">-->
-            <!--<div class="icon"><i class="fa fa-trophy"></i></div>-->
-            <!--<div class="text">کوییز های من</div>-->
-            <!--<div class="clear"></div>-->
-        <!--</div>-->
-        <!--<div class="awards">-->
-            <!--<div class="award">-->
-                <!--<div class="date">2014</div>-->
-                <!--<div class="body">-->
-                    <!--<div class="award_title">1rst Award &bull; Name of Institute</div>-->
-                    <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="award">-->
-                <!--<div class="date">2013</div>-->
-                <!--<div class="body">-->
-                    <!--<div class="award_title">2nd Award &bull; Name of Institute</div>-->
-                    <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="award">-->
-                <!--<div class="date">2012</div>-->
-                <!--<div class="body">-->
-                    <!--<div class="award_title">3rd Award &bull; Name of Institute</div>-->
-                    <!--MIKH TAIZEN TAASH PAINEN DAAS NAIZEN OOKH MAISHEN-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!-- /Awards -->
-
-    <div class="clear"></div>
 </script>
 
 <script type="text/ng-template" id="/question.html">
-    <h1 class="title color"></h1>
+    <div style="padding: 2%">
+        <h1 class="title color"></h1>
 
-    <!-- Left Side -->
-    <div class="left_side">
+        <!-- Left Side -->
+        <div class="left_side">
 
-        <!-- Education -->
-        <div class="education lists">
-            <div class="box_title title" dir="rtl">
-                <div class="icon"><i class="fa fa-clock-o"></i></div>
-                <div class="text">سوالات</div>
-                <div class="clear"></div>
+            <!-- Education -->
+            <div class="education lists">
+                <div class="box_title title" dir="rtl">
+                    <div class="icon"><i class="fa fa-clock-o"></i></div>
+                    <div class="text">سوالات</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <div class="title">سوال ۱<label for="category" style="margin-right: 82%"> category </label>
+
+                        </div>
+
+
+                        <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                    class="name">Computer Science</span></div>
+                        <div class="text">
+                            ***
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="items">
-                <div class="item">
-                    <div class="title">سوال ۱<label for="category" style="margin-right: 82%"> category </label>
+            <!-- /Education -->
 
-                    </div>
-
-
-                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
-                                class="name">Computer Science</span></div>
-                    <div class="text">
-                        ***
-                    </div>
+            <!-- Employment -->
+            <div class="employment lists">
+                <div class="box_title title">
+                    <div class="icon"><i class="fa fa-bolt"></i></div>
+                    <div class="text">سوال جدید</div>
+                    <div class="clear"></div>
                 </div>
 
             </div>
-        </div>
-        <!-- /Education -->
 
-        <!-- Employment -->
-        <div class="employment lists">
-            <div class="box_title title">
-                <div class="icon"><i class="fa fa-bolt"></i></div>
-                <div class="text">سوال جدید</div>
+            <a class="btn" ng-click="showAdvanced($event)"><i class="fa fa-download"></i><span> افزودن سوال </span>
+
+
                 <div class="clear"></div>
-            </div>
+            </a>
+            <!-- /Employment -->
+
 
         </div>
+        <!-- /Left Side -->
 
-        <a class="btn" ng-click="showAdvanced($event)"><i class="fa fa-download"></i><span> افزودن سوال </span>
+        <!-- Right Side -->
+        <div class="right_side">
 
+            <!-- Skills -->
+            <!-- /Skills -->
 
-            <div class="clear"></div>
-        </a>
-        <!-- /Employment -->
+            <!-- search -->
+            <div class="resume_download lists">
+                <div class="box_title title">
+                    <div class="icon"><i class="fa fa-file-text"></i></div>
+                    <div class="text">جستجو</div>
+                    <div class="clear"></div>
 
+                </div>
 
-    </div>
-    <!-- /Left Side -->
-
-    <!-- Right Side -->
-    <div class="right_side">
-
-        <!-- Skills -->
-        <!-- /Skills -->
-
-        <!-- search -->
-        <div class="resume_download lists">
-            <div class="box_title title">
-                <div class="icon"><i class="fa fa-file-text"></i></div>
-                <div class="text">جستجو</div>
-                <div class="clear"></div>
+                <input type="text" class="form-control input-sm" id="pref-search">
+                <input class="sb_search" type="submit" value=""/>
 
             </div>
 
-            <input type="text" class="form-control input-sm" id="pref-search">
-            <input class="sb_search" type="submit" value=""/>
+            <!-- /search -->
 
         </div>
+        <!-- /Right Side -->
 
-        <!-- /search -->
-
+        <div class="clear"></div>
     </div>
-    <!-- /Right Side -->
-
-    <div class="clear"></div>
 </script>
 
 <script type="text/ng-template" id="/category.html">
 
-    <div id="sample-category">
+    <div id="sample-category" style="padding: 2%">
 
         <h1 class="page_title title color">تقسیم بندی موضوعی</h1>
 
@@ -1723,23 +1725,61 @@
         </ul>
         <!-- /Portfolio Items Type Selector -->
 
+
+        <ul id="portfolio_grid">
+            <li class="mix webdesign">
+
+                <div class="popup_information">
+                    <div class="top">
+                        <img src="/images/quizPage/portfolio_1_r.jpg" alt="img"/>
+                    </div>
+                    <div class="bottom">
+                        <h3 class="title">Project Title</h3>
+                        <ul class="details">
+                            <li>Client: Client Name</li>
+                            <li>Date: 5-10-2013</li>
+                        </ul>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Praesent condimentum sed elit
+                            vitae tristique. Aliquam erat volutpat. Nunc sit
+                            amet cursus libero. In fringilla egestas ornare.
+                        </p>
+
+                        <div class="line">
+                            <a href="#">Go to project</a>
+
+                            <div class="share">
+                                <span>or share it</span>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-youtube"></a>
+
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </li>
+        </ul>
+
         <div ng-click="filterByType('1')">
             <p>filter</p>
         </div>
 
-        <form ng-submit="addCategory(sampleCategory)">
+        <form ng-submit="addCategory(sampleCategory)" style="padding: 2%">
             <input ng-model="sampleCategory.title"/>
-            <button type="button" class="btn btn-success">افزودن دسته بندی</button>
+            <button style="">افزودن دسته بندی</button>
         </form>
 
 
-        <form ng-submit="removeCategory(sampleCategory.title)">
+        <form ng-submit="removeCategory(sampleCategory.title)" style="padding: 2%">
             <select id="pref-orderby" class="form-control">
                 <option ng-repeat="category in categories">{{category.title}}</option>
             </select>
-            <button type="button" class="btn btn-success">حذف دسته</button>
+            <button>حذف دسته</button>
         </form>
-
 
     </div>
 
@@ -2294,224 +2334,226 @@
 
 <script type="text/ng-template" id="/quiz.html">
 
-    <h1 class="title color"></h1>
-    <!-- Left Side -->
-    <div class="left_side">
+    <div style="padding: 2%">
+        <h1 class="title color"></h1>
+        <!-- Left Side -->
+        <div class="left_side">
 
-        <!-- Education -->
-        <div class="education lists">
-            <div class="box_title title">
-                <div class="icon"><i class="fa fa-clock-o"></i></div>
-                <div class="text">سوالات</div>
-                <div class="clear"></div>
-            </div>
-            <div class="items">
-                <!-- question 1 -->
-                <div class="item">
-                    <div class="title">سوال ۱</div>
-                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
-                                class="name">Computer Science</span></div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۱</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۲</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۳</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۴</input>
-                    </div>
+            <!-- Education -->
+            <div class="education lists">
+                <div class="box_title title">
+                    <div class="icon"><i class="fa fa-clock-o"></i></div>
+                    <div class="text">سوالات</div>
+                    <div class="clear"></div>
                 </div>
+                <div class="items">
+                    <!-- question 1 -->
+                    <div class="item">
+                        <div class="title">سوال ۱</div>
+                        <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                    class="name">Computer Science</span></div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۱</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۲</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۳</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۴</input>
+                        </div>
+                    </div>
 
-                <!-- question 2 -->
-                <div class="item">
-                    <div class="title">سوال ۲</div>
-                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
-                                class="name">Computer Science</span></div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    <!-- question 2 -->
+                    <div class="item">
+                        <div class="title">سوال ۲</div>
+                        <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                    class="name">Computer Science</span></div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۱</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۲</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۳</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۴</input>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۲</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۳</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۴</input>
-                    </div>
-                </div>
 
-                <!-- question 3 -->
-                <div class="item">
-                    <div class="title">سوال ۳</div>
-                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
-                                class="name">Computer Science</span></div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۱</input>
+                    <!-- question 3 -->
+                    <div class="item">
+                        <div class="title">سوال ۳</div>
+                        <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                    class="name">Computer Science</span></div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۱</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۲</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۳</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۴</input>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۲</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۳</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۴</input>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <!-- /Education -->
-
-        <!-- Employment -->
 
 
-        <!-- /Employment -->
-
-    </div>
-    <!-- /Left Side -->
-
-
-    <!-- Right Side -->
-    <div class="right_side">
-        <div>
-            <img style="width: 40%" src="images/quizPage/thinking2.png">
-        </div>
-        <!-- Education -->
-        <div class="education lists">
-
-            <div class="items">
-                <!-- question 4 -->
-                <div class="item">
-                    <div class="title">سوال ۴</div>
-                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
-                                class="name">Computer Science</span></div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۱</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۲</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۳</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۴</input>
-                    </div>
-                </div>
-
-                <!-- question ۵ -->
-                <div class="item">
-                    <div class="title">سوال ۵</div>
-                    <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
-                                class="name">Computer Science</span></div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۱</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۲</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۳</input>
-                    </div>
-                    <div>
-                        <input type="radio" id="answerSelect">گزینه ۴</input>
-                    </div>
                 </div>
             </div>
+            <!-- /Education -->
+
+            <!-- Employment -->
+
+
+            <!-- /Employment -->
+
         </div>
-        <!-- /Education -->
-
-        <!-- Employment -->
+        <!-- /Left Side -->
 
 
-        <!-- /Employment -->
+        <!-- Right Side -->
+        <div class="right_side">
+            <div>
+                <img style="width: 40%" src="images/quizPage/thinking2.png">
+            </div>
+            <!-- Education -->
+            <div class="education lists">
 
-    </div>
-    <!-- /Right Side -->
+                <div class="items">
+                    <!-- question 4 -->
+                    <div class="item">
+                        <div class="title">سوال ۴</div>
+                        <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                    class="name">Computer Science</span></div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۱</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۲</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۳</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۴</input>
+                        </div>
+                    </div>
+
+                    <!-- question ۵ -->
+                    <div class="item">
+                        <div class="title">سوال ۵</div>
+                        <div class="subtitle"><span class="date_text">2010-2013</span>&bull;<span
+                                    class="name">Computer Science</span></div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۱</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۲</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۳</input>
+                        </div>
+                        <div>
+                            <input type="radio" id="answerSelect">گزینه ۴</input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Education -->
+
+            <!-- Employment -->
 
 
-    <div class="clear"></div>
+            <!-- /Employment -->
 
-    <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i
-                class="fa fa-download"></i><span> ثبت کوییز </span>
+        </div>
+        <!-- /Right Side -->
+
 
         <div class="clear"></div>
-    </a>
 
+        <a href="#QuestionPopUp" class="btn" onclick="showQuestionPopUp()" id="submitQuiz"><i
+                    class="fa fa-download"></i><span> ثبت کوییز </span>
+
+            <div class="clear"></div>
+        </a>
+    </div>
 </script>
 
 <script type="text/ng-template" id="/contact.html">
-    <h1 class="title color">ارتباط با ما</h1>
+    <div style="padding: 2%">
+        <h1 class="title color">ارتباط با ما</h1>
 
-    <!-- Description -->
+        <!-- Description -->
 
-    <!-- /Description -->
+        <!-- /Description -->
 
-    <!-- Google Map -->
-    <!--<div id="gmap"></div>-->
-    <!-- /Google Map -->
+        <!-- Google Map -->
+        <!--<div id="gmap"></div>-->
+        <!-- /Google Map -->
 
-    <!-- Info -->
-    <div class="info">
-        <!--
-        <div class="user">
-        <i class="fa fa-user"></i>
-        <span>John Doe</span>
+        <!-- Info -->
+        <div class="info">
+            <!--
+            <div class="user">
+            <i class="fa fa-user"></i>
+            <span>John Doe</span>
+            </div>
+            <div class="user">
+            <i class="fa fa-map-marker"></i>
+            <span>New York City</span>
+            </div>
+            -->
+            <div class="user">
+                <i class="fa fa-envelope"></i>
+                <span>niceguysofsoftlab@gmail.com</span>
+            </div>
+            <div class="clear"></div>
         </div>
-        <div class="user">
-        <i class="fa fa-map-marker"></i>
-        <span>New York City</span>
+        <!-- /Info -->
+
+        <!-- Contact Form -->
+        <div class="contact_form_outer">
+            <h1 class="title color">ارسال پیام</h1>
+
+            <p>
+                جهت ارسال پیام و نظرات خود از اینجا اقدام فرمایید.
+            </p>
+
+            <div class="contact_form">
+                <input type="text" value="" placeholder="نام" class="name" style="width: inherit"/>
+                <input type="email" value="" placeholder="پست الکترونیک" class="email"style="width: inherit"/>
+                <textarea class="message" placeholder="پیام"></textarea>
+                <input type="button" value="ارسال پیام" class="btn send_message_btn" name="submit"/>
+                <span class="message"></span>
+            </div>
         </div>
-        -->
-        <div class="user">
-            <i class="fa fa-envelope"></i>
-            <span>niceguysofsoftlab@gmail.com</span>
-        </div>
-        <div class="clear"></div>
+        <!-- /Contact Form -->
+
+        <!-- Social Buttons -->
+        <!--<div class="social_btns" ng-controller="NavCtrl">-->
+            <!--<a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>-->
+            <!--<a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>-->
+            <!--<a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>-->
+            <!--<a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>-->
+            <!--<a href="#"><i class="fa fa-github"></i><span>Github</span></a>-->
+            <!--<a href="#"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>-->
+            <!--<a href="#"><i class="fa fa-flickr"></i><span>Flickr</span></a>-->
+            <!--<a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>-->
+            <!--<a href="#"><i class="fa fa-vk"></i><span>VK</span></a>-->
+            <!--<a href="#"><i class="fa fa-skype"></i><span>Skype</span></a>-->
+            <!--<a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>-->
+            <!--<a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>-->
+        <!--</div>-->
+        <!-- /Social Buttons -->
     </div>
-    <!-- /Info -->
-
-    <!-- Contact Form -->
-    <div class="contact_form_outer">
-        <h1 class="title color">ارسال پیام</h1>
-
-        <p>
-            جهت ارسال پیام و نظرات خود از اینجا اقدام فرمایید.
-        </p>
-
-        <div class="contact_form">
-            <input type="text" value="" placeholder="نام" class="name" style="width: inherit"/>
-            <input type="email" value="" placeholder="پست الکترونیک" class="email"style="width: inherit"/>
-            <textarea class="message" placeholder="پیام"></textarea>
-            <input type="button" value="ارسال پیام" class="btn send_message_btn" name="submit"/>
-            <span class="message"></span>
-        </div>
-    </div>
-    <!-- /Contact Form -->
-
-    <!-- Social Buttons -->
-    <!--<div class="social_btns" ng-controller="NavCtrl">-->
-        <!--<a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>-->
-        <!--<a href="#"><i class="fa fa-twitter""></i><span>Twitter</span></a>-->
-        <!--<a href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a>-->
-        <!--<a href="#"><i class="fa fa-youtube"></i><span>YouTube</span></a>-->
-        <!--<a href="#"><i class="fa fa-github"></i><span>Github</span></a>-->
-        <!--<a href="#"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>-->
-        <!--<a href="#"><i class="fa fa-flickr"></i><span>Flickr</span></a>-->
-        <!--<a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>-->
-        <!--<a href="#"><i class="fa fa-vk"></i><span>VK</span></a>-->
-        <!--<a href="#"><i class="fa fa-skype"></i><span>Skype</span></a>-->
-        <!--<a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>-->
-        <!--<a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>-->
-    <!--</div>-->
-    <!-- /Social Buttons -->
-
 </script>
 ‍
 </body>
