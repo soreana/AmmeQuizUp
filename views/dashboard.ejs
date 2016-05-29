@@ -114,32 +114,32 @@
         <div class="content">
 
             <!-- Home Page -->
-            <div id="home" class="pt-page-current">
-                <!--<ui-view></ui-view>-->
+            <div id="home" class="pt-page-current" ng-controller="NavCtrl">
 
-                <!--&lt;!&ndash; Slider &ndash;&gt;-->
-                <!--<div class="main_slider cycle-slideshow">-->
-                <!--<div class="overlay">-->
-                <!--<img src="/images/quizPage/quizup-main.jpg" alt="img"/>-->
 
-                <!--<div class="description">-->
+                <!-- Slider -->
+                <div class="main_slider cycle-slideshow">
+                <div class="overlay">
+                <img src="/images/quizPage/quizup-main.jpg" alt="img"/>
 
-                <!--&lt;!&ndash; Description Rotator &ndash;&gt;-->
-                <!--<div class="rotate">-->
-                <!--MIKH TAAIZEN TAASH PAAINEN DAAS NAIZEN OOKH MAISHEN...-->
-                <!--</div>-->
-                <!--&lt;!&ndash; /Description Rotator &ndash;&gt;-->
+                <div class="description">
 
-                <!--</div>-->
-                <!--</div>-->
-                <!--<img src="/images/quizPage/slider_1.jpg" alt="img"/>-->
-                <!--<img src="/images/quizPage/slider_2.jpg" alt="img"/>-->
-                <!--<img src="/images/quizPage/slider_3.jpg" alt="img"/>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; /Slider &ndash;&gt;-->
+                <!-- Description Rotator -->
+                <div class="rotate">
+                MIKH TAAIZEN TAASH PAAINEN DAAS NAIZEN OOKH MAISHEN...
+                </div>
+                <!-- /Description Rotator -->
 
-                <!--<div class="resume_btn goto_resume_btn">سوالات</div>-->
-                <!--<a href="#" class="cv_download_btn">جستجو</a>-->
+                </div>
+                </div>
+                <img src="/images/quizPage/slider_1.jpg" alt="img"/>
+                <img src="/images/quizPage/slider_2.jpg" alt="img"/>
+                <img src="/images/quizPage/slider_3.jpg" alt="img"/>
+                </div>
+                <!-- /Slider -->
+
+                <div class="resume_btn goto_resume_btn" ng-click="gotoState('question')" >سوالات</div>
+                <a class="cv_download_btn goto_resume_btn" ng-click="gotoState('contact')">ارتباط با ما</a>
             </div>
             <!-- /Home Page -->
 
@@ -1066,7 +1066,7 @@
             <!-- /Blog Page -->
 
             <!-- Contact Page -->
-            <div id="contact">
+            <div id="contact" style="padding: 2%">
                 <ui-view></ui-view>
                 <!--<h1 class="title color">ارتباط با ما</h1>-->
 
@@ -2494,6 +2494,7 @@
 </script>
 
 <script type="text/ng-template" id="/contact.html">
+
     <div style="padding: 2%">
         <h1 class="title color">ارتباط با ما</h1>
 

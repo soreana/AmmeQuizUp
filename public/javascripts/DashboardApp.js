@@ -148,12 +148,12 @@ app.config([
     '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
 
-        $stateProvider
-            .state('quizHome', {
-                url: '/quizHome',
-                templateUrl: '/quizHome.html',
-                controller: 'QuizHomeCtrl'
-            });
+        //$stateProvider
+        //    .state('quizHome', {
+        //        url: '/quizHome',
+        //        templateUrl: '/quizHome.html',
+        //        controller: 'QuizHomeCtrl'
+        //    });
 
         $stateProvider
             .state('profile', {
