@@ -28,10 +28,11 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
 
     var helper = {};
 
-    function Quiz(questions) {
+    function Quiz(questions,result) {
         this.currentQuestion = 0;
         this.questions = questions;
         this.answers = [];
+        this.result = result;
     }
 
     Quiz.prototype.start = function () {
@@ -58,8 +59,8 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
         // for(var i=0 ; i<category.comments.length;i++)
         //     category.comments[i].added = false;
         array = o.categories[0].comments;
-        
-        return new Quiz(array);
+
+        return new Quiz(array,Math.floor((Math.random() * 7) + 1));
     };
 
     o.get = function (id, index, next) {
@@ -81,10 +82,10 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
             for (var i = 0; i < o.categories.length; i++) {
                 for (var j = 0; j < o.categories[i].comments.length; j++)
                     // o.categories[i] = o.get( o.categories[i]._id );
-                // o.categories[i].comments[j]=o.get( o.categories[i].comments[j]);
-                o.get(o.categories[i]._id, i, function (data, index) {
-                    angular.copy(data, o.categories[index]);
-                });
+                    // o.categories[i].comments[j]=o.get( o.categories[i].comments[j]);
+                    o.get(o.categories[i]._id, i, function (data, index) {
+                        angular.copy(data, o.categories[index]);
+                    });
             }
         });
     };
@@ -120,14 +121,14 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
                 return o.categories[i];
         return null;
     };
-    
+
     o.getCategoryByTitle = function (title) {
         for (var i = 0; i < o.categories.length; i++)
             if (o.categories[i].title === title)
                 return o.categories[i];
         return o.categories[0];
     };
-        
+
     o.saveNewQuestion = function (question, next) {
         console.log(question);
         if (question.categoryName === '') {
@@ -411,9 +412,20 @@ app.controller('CategoryCtrl',
 
 app.controller('QuizCtrl',
     ['$scope', 'auth', 'categories',
-        function ($scope, auth , categories) {
+        function ($scope, auth, categories) {
             $scope.quiz = categories.getQuiz(categories.categories[0]);
 
+            $scope.index = 0;
+            
+            $scope.showQuiz = true;
+
+            $scope.next = function () {
+                if ($scope.index < 7){
+                    $scope.index++;
+                    if($scope.index>=7)
+                        $scope.showQuiz=false;
+                }
+            };
         }]);
 
 app.controller('ContactCtrl',
