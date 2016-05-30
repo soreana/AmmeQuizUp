@@ -7,27 +7,62 @@ var app = angular.module('dashboardApp', ['ui.router', 'ngMaterial', 'ngMessages
 app.factory('categories', ['$http', 'auth', function ($http, auth) {
     var o = {};
     o.categories = [
-        {title: "numberOne", type: "1", show: true, _id: "januaries"}
+        {
+            title: "numberOne",
+            type: "1",
+            show: true,
+            _id: "januaries",
+            comments: [
+                {
+                    body: '',
+                    choices: [
+                        {title: '', answer: false},
+                        {title: '', answer: false},
+                        {title: '', answer: false},
+                        {title: '', answer: false}
+                    ]
+                }
+            ]
+        }
     ];
+
+    o.get = function (id, index, next) {
+        return $http.get('/posts/' + id).then(function (res) {
+            next(res.data, index);
+            return res.data;
+        });
+    };
+
+    o.addComment = function (id, comment) {
+        return $http.post('/posts/' + id + '/comments', comment, {
+            headers: {Authorization: 'Bearer ' + auth.getToken()}
+        });
+    };
 
     o.getAll = function () {
         return $http.get('/posts').success(function (data) {
-            for (var i = 0; i < data.length; i++) {
-                data[i].show = true;
-            }
             angular.copy(data, o.categories);
+            for (var i = 0; i < o.categories.length; i++) {
+                for (var j = 0; j < o.categories[i].comments.length; j++)
+                    // o.categories[i] = o.get( o.categories[i]._id );
+                    console.log('hello world!');
+                // o.categories[i].comments[j]=o.get( o.categories[i].comments[j]);
+                o.get(o.categories[i]._id, i, function (data, index) {
+                    angular.copy(data, o.categories[index]);
+                });
+            }
         });
     };
 
     o.addCategory = function (category) {
         // todo check category existence
-        for(var i=0;i<o.categories.length;i++)
-            if(o.categories[i].title === category.title){
+        for (var i = 0; i < o.categories.length; i++)
+            if (o.categories[i].title === category.title) {
                 console.log('category tekrari');
                 window.alert("این بخش قبلا ثبت شده است.");
-                var notNewCategory=1;
+                var notNewCategory = 1;
             }
-        if(!notNewCategory){
+        if (!notNewCategory) {
             return $http.post('/posts', category, {
                 headers: {Authorization: 'Bearer ' + auth.getToken()}
             }).success(function (data) {
@@ -37,11 +72,18 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
             });
         }
     };
-    
+
     o.getId = function (categoryName) {
-        for(var i=0;i<o.categories.length;i++)
-            if(o.categories[i].title === categoryName)
+        for (var i = 0; i < o.categories.length; i++)
+            if (o.categories[i].title === categoryName)
                 return o.categories[i]._id;
+    };
+
+    o.getCategoryById = function (id) {
+        for (var i = 0; i < o.categories.length; i++)
+            if (o.categories[i]._id === id)
+                return o.categories[i];
+        return null;
     };
 
     o.saveNewQuestion = function (question, next) {
@@ -54,13 +96,14 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
         if (question.choices[0].title === '' || question.choices[1].title === ''
             || question.choices[2].title === '' || question.choices[3].title === '')
             next(new Error('جواب ها نمی توانند خالی باشند.'));
-        if( !(question.choices[0].answer || question.choices[1].answer
+        if (!(question.choices[0].answer || question.choices[1].answer
             || question.choices[2].answer || question.choices[3].answer))
             next(new Error('باید یک جواب را انتخاب کنید.'));
-        
-        return $http.post('/posts/' + o.getId(question.categoryName)+ '/comments', question, {
+
+        return $http.post('/posts/' + o.getId(question.categoryName) + '/comments', question, {
             headers: {Authorization: 'Bearer ' + auth.getToken()}
         }).success(function () {
+            o.getCategoryById(o.getId(question.categoryName)).comments.push(question);
             next();
         });
     };
@@ -214,7 +257,7 @@ app.controller('ProfileCtrl',
     ['$scope', 'auth',
         function ($scope, auth) {
             $scope.user = auth.currentUser();
-            $scope.getRandomNumber  = function(){
+            $scope.getRandomNumber = function () {
                 Math.floor((Math.random() * 20) + 1);
             };
 
@@ -254,8 +297,8 @@ function DialogController($scope, $mdDialog, categories) {
     };
 
     $scope.answer = function (answer) {
-        categories.saveNewQuestion($scope.newQuestion,function (err) {
-            if(err) {
+        categories.saveNewQuestion($scope.newQuestion, function (err) {
+            if (err) {
                 $scope.errMessage = err.message;
                 return;
             }
@@ -265,8 +308,9 @@ function DialogController($scope, $mdDialog, categories) {
 }
 
 app.controller('QuestionCtrl',
-    ['$scope', 'auth', '$mdDialog', '$mdMedia',
-        function ($scope, auth, $mdDialog, $mdMedia) {
+    ['$scope', 'auth', '$mdDialog', '$mdMedia', 'categories',
+        function ($scope, auth, $mdDialog, $mdMedia, categories) {
+            $scope.categories = categories.categories;
             $scope.showAdvanced = function (ev) {
                 var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
 
@@ -294,13 +338,13 @@ app.controller('CategoryCtrl',
 
             $scope.currentType = "";
 
-            $scope.disableFilters = function(){
-              for(var i=0; i< $scope.categories.length ; i++){
-                  $scope.categories[i].show = true;
-              }
+            $scope.disableFilters = function () {
+                for (var i = 0; i < $scope.categories.length; i++) {
+                    $scope.categories[i].show = true;
+                }
             };
 
-            $scope.getAllTypes = function(){
+            $scope.getAllTypes = function () {
                 var types = [];
 
             };
@@ -336,7 +380,7 @@ app.controller('ContactCtrl',
         }]);
 
 app.controller('NavCtrl',
-    ['$scope', '$state','auth', function ($scope, $state,auth) {
+    ['$scope', '$state', 'auth', function ($scope, $state, auth) {
         $scope.gotoState = function (state) {
             console.log(state);
             $state.go(state);
