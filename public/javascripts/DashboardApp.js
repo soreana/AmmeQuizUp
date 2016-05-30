@@ -26,6 +26,42 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
         }
     ];
 
+    var helper = {};
+
+    function Quiz(questions) {
+        this.currentQuestion = 0;
+        this.questions = questions;
+        this.answers = [];
+    }
+
+    Quiz.prototype.start = function () {
+        this.currentQuestion = 0;
+    };
+
+    o.getQuiz = function (categoryTitle) {
+        var array = [];
+        // var category = o.getCategoryByTitle(categoryTitle);
+        //
+        // for(var i=0 ; i<category.comments.length;i++)
+        //     category.comments[i].added = false;
+        //
+        // while(array.length < 7){
+        //     for(var i=0 ; i<category.comments.length;i++){
+        //         if((Math.floor((Math.random() * 10) + 1))>7 && category.comments[i].added === false){
+        //             console.log("hello");
+        //             array.push(category.comments[i]);
+        //             category.comments[i].added = true;
+        //         }
+        //     }
+        // }
+        //
+        // for(var i=0 ; i<category.comments.length;i++)
+        //     category.comments[i].added = false;
+        array = o.categories[0].comments;
+        
+        return new Quiz(array);
+    };
+
     o.get = function (id, index, next) {
         return $http.get('/posts/' + id).then(function (res) {
             next(res.data, index);
@@ -45,7 +81,6 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
             for (var i = 0; i < o.categories.length; i++) {
                 for (var j = 0; j < o.categories[i].comments.length; j++)
                     // o.categories[i] = o.get( o.categories[i]._id );
-                    console.log('hello world!');
                 // o.categories[i].comments[j]=o.get( o.categories[i].comments[j]);
                 o.get(o.categories[i]._id, i, function (data, index) {
                     angular.copy(data, o.categories[index]);
@@ -85,7 +120,14 @@ app.factory('categories', ['$http', 'auth', function ($http, auth) {
                 return o.categories[i];
         return null;
     };
-
+    
+    o.getCategoryByTitle = function (title) {
+        for (var i = 0; i < o.categories.length; i++)
+            if (o.categories[i].title === title)
+                return o.categories[i];
+        return o.categories[0];
+    };
+        
     o.saveNewQuestion = function (question, next) {
         console.log(question);
         if (question.categoryName === '') {
@@ -368,8 +410,9 @@ app.controller('CategoryCtrl',
         }]);
 
 app.controller('QuizCtrl',
-    ['$scope', 'auth',
-        function ($scope, auth) {
+    ['$scope', 'auth', 'categories',
+        function ($scope, auth , categories) {
+            $scope.quiz = categories.getQuiz(categories.categories[0]);
 
         }]);
 
