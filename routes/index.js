@@ -110,6 +110,11 @@ router.get('/posts/:post', function (req, res) {
     });
 });
 
+router.get('/test',function (req,res) {
+    console.log('shangula');
+    res.json({});
+});
+
 router.post('/posts/delete/:post', function (req, res) {
     Category.find({_id: req.category._id}, function (err, categories) {
         if (err)
